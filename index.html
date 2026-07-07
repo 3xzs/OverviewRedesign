@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mein Konto | Conrad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #376EEF;
+    --color-primary-hover: #0F40B5;
+    --color-secondary: #E4E5FD;
+    --color-secondary-hover: #C8CCFB;
+    --color-success: #1BBC9B;
+    --color-warning: #ffff00;
+    --color-error: #DC4948;
+    --color-bg-page: #F4F5F7;
+    --color-bg-card: #ffffff;
+    --color-neutral-btn: #F4F5F7;
+    --color-neutral-btn-hover: #E4E6EB;
+    --color-text-default: #323945;
+    --color-text-muted: #6B7280;
+    --font-family: 'Inter', sans-serif;
+    --radius-card: 8px;
+    --radius-btn: 8px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: var(--color-bg-page);
+    color: var(--color-text-default);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Top utility bar */
+  .utility-bar {
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 19px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 8px 32px;
+    flex-wrap: wrap;
+  }
+  .utility-bar span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  /* Main header */
+  .main-header {
+    background: #0B1E4B;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+  }
+  .nav-categories {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+  }
+  .header-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .icon-btn {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .user-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+  .user-badge {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #14295E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pro-tag {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+  .user-name { font-size: 14px; font-weight: 600; line-height: 18px; }
+  .user-sub { font-size: 12px; color: #A8B3D1; line-height: 16px; }
+
+  /* Search bar */
+  .search-bar {
+    background: #14295E;
+    padding: 20px 32px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .search-input-wrap {
+    flex: 1;
+    max-width: 100%;
+  }
+  .search-input {
+    width: 100%;
+    height: 48px;
+    border-radius: var(--radius-btn);
+    border: none;
+    padding: 0 16px;
+    font-family: var(--font-family);
+    font-size: 14px;
+    color: #ffffff;
+    background: #14295E;
+    outline: none;
+  }
+  .search-input::placeholder { color: #A8B3D1; }
+  .btn {
+    height: 48px;
+    padding: 0 16px;
+    border-radius: var(--radius-btn);
+    border: none;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--color-primary); color: #fff; }
+  .btn-primary:hover { background: var(--color-primary-hover); }
+  .btn-neutral { background: var(--color-neutral-btn); color: var(--color-text-default); }
+  .btn-neutral:hover { background: var(--color-neutral-btn-hover); }
+
+  /* Page container */
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 24px 32px 64px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+  }
+  .breadcrumb a { color: var(--color-text-muted); }
+  .breadcrumb .current { color: var(--color-text-default); }
+
+  h1.page-title {
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: 700;
+    margin: 0 0 32px;
+  }
+
+  h2.section-title {
+    font-size: 24px;
+    line-height: 38px;
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+
+  /* Order cards */
+  .order-card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ECEDF0;
+    margin-bottom: 16px;
+  }
+  .order-title-block { display: flex; flex-direction: column; gap: 8px; }
+  .order-title {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .order-title:hover { color: var(--color-primary-hover); }
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 19px;
+  }
+  .status-open { background: var(--color-secondary); color: #323945; }
+  .status-cancelled { background: #F4F5F7; color: #6B7280; }
+  .status-shipped { background: #0B1E4B; color: #ffffff; }
+
+  .order-thumbs {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .order-thumbs img {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #F4F5F7;
+    border: 1px solid #ECEDF0;
+  }
+
+  .order-details {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .order-detail-label {
+    font-size: 12px;
+    line-height: 19px;
+    color: var(--color-text-muted);
+    margin-bottom: 4px;
+  }
+  .order-detail-value {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+  .order-detail-value.link {
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+  }
+  .order-detail-value.link:hover { color: var(--color-primary-hover); }
+
+  .show-all-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 48px;
+  }
+  .btn-show-all {
+    background: var(--color-neutral-btn);
+    color: var(--color-text-default);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+  }
+  .btn-show-all:hover { background: var(--color-neutral-btn-hover); }
+
+  /* Settings list */
+  .settings-card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #ECEDF0;
+    cursor: pointer;
+  }
+  .settings-row:last-child { border-bottom: none; }
+  .settings-row:hover { background: #FAFAFB; }
+  .settings-label {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .settings-desc {
+    font-size: 12px;
+    line-height: 19px;
+    color: var(--color-text-muted);
+  }
+  .chevron { color: var(--color-text-muted); flex-shrink: 0; margin-left: 16px; }
+
+  @media (max-width: 900px) {
+    .order-details { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .utility-bar { display: none; }
+    .container { padding: 16px 16px 48px; }
+    .order-top { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="utility-bar">
+    <span>&#10003; Alles f&uuml;r Ihre Technik</span>
+    <span>&#10003; Lieferungen in 24h</span>
+    <span>&#10003; Garantiertes R&uuml;ckgaberecht</span>
+    <span>&#10003; Fachhandel seit 1923</span>
+  </div>
+
+  <header class="main-header">
+    <div class="logo">CONRAD</div>
+    <div class="nav-categories">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Kategorien
+    </div>
+    <div class="header-right">
+      <div class="header-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Hilfe &amp; Support
+      </div>
+      <div class="icon-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.35-9.5-9C.7 8.1 2.4 4 6.2 4c2.1 0 3.5 1.2 4.3 2.4C11.3 5.2 12.7 4 14.8 4 18.6 4 20.3 8.1 18.5 12c-2.5 4.65-9.5 9-9.5 9z" stroke="white" stroke-width="1.5"/></svg>
+      </div>
+      <div class="icon-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 4h2l2.5 12.5A2 2 0 0 0 10.45 18h7.1a2 2 0 0 0 1.95-1.5L21 8H6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.2" fill="white"/><circle cx="18" cy="21" r="1.2" fill="white"/></svg>
+      </div>
+      <div class="user-block">
+        <div class="user-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="pro-tag">PRO</span>
+        </div>
+        <div>
+          <div class="user-name">Max Mustermann</div>
+          <div class="user-sub">Conrad Electronic SE</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-bar">
+    <div class="search-input-wrap">
+      <input class="search-input" type="text" placeholder="Stellen Sie eine Frage, zum Beispiel: Welche Spannung ben&ouml;tige ich f&uuml;r ein Labornetzger&auml;t?">
+    </div>
+    <button class="btn btn-primary">Suchen</button>
+  </div>
+
+  <div class="container">
+
+    <nav class="breadcrumb">
+      <a href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span>/</span>
+      <span class="current">Mein Konto</span>
+    </nav>
+
+    <h1 class="page-title">Guten Tag Max Mustermann</h1>
+
+    <h2 class="section-title">Letzte Bestellungen</h2>
+
+    <!-- Order 1 -->
+    <div class="order-card">
+      <div class="order-top">
+        <div class="order-title-block">
+          <a class="order-title" href="#">Order #2015368172-00: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</a>
+          <span class="status-badge status-open">Offen</span>
+        </div>
+        <div class="order-thumbs">
+          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%93%B1" alt="Apple iPhone 17 Pro">
+        </div>
+      </div>
+      <div class="order-details">
+        <div>
+          <div class="order-detail-label">Datum</div>
+          <div class="order-detail-value">4 Nov</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Preis</div>
+          <div class="order-detail-value">348,00 &euro;</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Sendung</div>
+          <div class="order-detail-value">&ndash;</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Zahlungsstatus</div>
+          <div class="order-detail-value">Ausstehend</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Rechnung</div>
+          <div class="order-detail-value">&ndash;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order 2 -->
+    <div class="order-card">
+      <div class="order-top">
+        <div class="order-title-block">
+          <a class="order-title" href="#">Order #2015368172-00: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</a>
+          <span class="status-badge status-cancelled">Storniert</span>
+        </div>
+        <div class="order-thumbs">
+          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%93%B1" alt="Apple iPhone 17 Pro">
+        </div>
+      </div>
+      <div class="order-details">
+        <div>
+          <div class="order-detail-label">Datum</div>
+          <div class="order-detail-value">28 Oct</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Preis</div>
+          <div class="order-detail-value">348,00 &euro;</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Sendung</div>
+          <div class="order-detail-value">&ndash;</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Zahlungsstatus</div>
+          <div class="order-detail-value">Abgebrochen</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Rechnung</div>
+          <div class="order-detail-value">&ndash;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order 3 -->
+    <div class="order-card">
+      <div class="order-top">
+        <div class="order-title-block">
+          <a class="order-title" href="#">Order #2015368172-00: Apple AirPods 4 AirPods B... und 3 Weitere Artikel</a>
+          <span class="status-badge status-shipped">Versendet</span>
+        </div>
+        <div class="order-thumbs">
+          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%8E%A7" alt="Apple AirPods 4">
+          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%93%B1" alt="Artikel 2">
+          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%93%B1" alt="Artikel 3">
+          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%93%B1" alt="Artikel 4">
+        </div>
+      </div>
+      <div class="order-details">
+        <div>
+          <div class="order-detail-label">Datum</div>
+          <div class="order-detail-value">14 Oct</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Preis</div>
+          <div class="order-detail-value">348,00 &euro;</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Sendung</div>
+          <div class="order-detail-value link">DSHWE3487197913
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4 10 14M9 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div>
+          <div class="order-detail-label">Zahlungsstatus</div>
+          <div class="order-detail-value">Bezahlt</div>
+        </div>
+        <div>
+          <div class="order-detail-label">Rechnung</div>
+          <div class="order-detail-value link">Herunterladen
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-all-wrap">
+      <button class="btn btn-show-all">
+        Alle Bestellungen anzeigen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#323945" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <h2 class="section-title">Einstellungen</h2>
+
+    <div class="settings-card">
+      <div class="settings-row">
+        <div>
+          <div class="settings-label">Profil</div>
+          <div class="settings-desc">Adresse, Beispiel 2, Beispiel 3</div>
+        </div>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-label">Adressen</div>
+          <div class="settings-desc">Gespeicherte Lieferadressen &auml;ndern</div>
+        </div>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-label">Rollenmanagement</div>
+          <div class="settings-desc">Benutzerrollen und Berechtigungen verwalten</div>
+        </div>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-label">Zahlungsart</div>
+          <div class="settings-desc">Bevorzugte Zahlungsmethoden verwalten</div>
+        </div>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-label">Produktvergleich</div>
+          <div class="settings-desc">Gespeicherte Produktvergleiche ansehen</div>
+        </div>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-label">Empfehlungen</div>
+          <div class="settings-desc">Pers&ouml;nliche Produktempfehlungen einsehen</div>
+        </div>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-label">Newsletter</div>
+          <div class="settings-desc">Newsletter-Abonnements verwalten</div>
+        </div>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="settings-row">
+        <div>
+          <div class="settings-label">OCI-Webshopanbindung</div>
+          <div class="settings-desc">Anbindung an Ihr Beschaffungssystem konfigurieren</div>
+        </div>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
