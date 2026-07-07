@@ -255,13 +255,16 @@
     gap: 8px;
     flex-shrink: 0;
   }
-  .order-thumbs img {
+  .order-thumbs .thumb {
     width: 64px;
     height: 64px;
     border-radius: 8px;
-    object-fit: cover;
     background: #F4F5F7;
     border: 1px solid #ECEDF0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
   .order-details {
@@ -295,14 +298,14 @@
     margin: 24px 0 48px;
   }
   .btn-show-all {
-    background: var(--color-neutral-btn);
+    background: var(--color-secondary);
     color: var(--color-text-default);
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-weight: 500;
   }
-  .btn-show-all:hover { background: var(--color-neutral-btn-hover); }
+  .btn-show-all:hover { background: var(--color-secondary-hover); }
 
   /* Settings list */
   .settings-card {
@@ -412,7 +415,9 @@
           <span class="status-badge status-open">Offen</span>
         </div>
         <div class="order-thumbs">
-          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%93%B1" alt="Apple iPhone 17 Pro">
+          <div class="thumb" title="Apple iPhone 17 Pro">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="3" fill="#323945"/><rect x="7.5" y="4.3" width="9" height="15" rx="1" fill="#EDEEF1"/><circle cx="12" cy="20.4" r="0.8" fill="#323945"/><circle cx="9" cy="3.3" r="0.5" fill="#5B6472"/></svg>
+          </div>
         </div>
       </div>
       <div class="order-details">
@@ -447,7 +452,9 @@
           <span class="status-badge status-cancelled">Storniert</span>
         </div>
         <div class="order-thumbs">
-          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%93%B1" alt="Apple iPhone 17 Pro">
+          <div class="thumb" title="Apple iPhone 17 Pro">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="3" fill="#323945"/><rect x="7.5" y="4.3" width="9" height="15" rx="1" fill="#EDEEF1"/><circle cx="12" cy="20.4" r="0.8" fill="#323945"/><circle cx="9" cy="3.3" r="0.5" fill="#5B6472"/></svg>
+          </div>
         </div>
       </div>
       <div class="order-details">
@@ -482,10 +489,18 @@
           <span class="status-badge status-shipped">Versendet</span>
         </div>
         <div class="order-thumbs">
-          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%8E%A7" alt="Apple AirPods 4">
-          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%93%B1" alt="Artikel 2">
-          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%93%B1" alt="Artikel 3">
-          <img src="https://placehold.co/64x64/f4f5f7/323945?text=%F0%9F%93%B1" alt="Artikel 4">
+          <div class="thumb" title="Apple AirPods 4">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="12" rx="4" fill="#EDEEF1" stroke="#C7CBD3" stroke-width="0.6"/><rect x="4" y="7" width="16" height="4" rx="2" fill="#D9DCE1"/><path d="M9 19v2.2a1.6 1.6 0 0 0 3.2 0V19" stroke="#5B6472" stroke-width="1.3" stroke-linecap="round"/><path d="M14.8 19v2.2a1.6 1.6 0 0 0 3.2 0V19" stroke="#5B6472" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+          <div class="thumb" title="Apple iPad">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="20" rx="2.5" fill="#323945"/><rect x="5.5" y="3.6" width="13" height="16.8" rx="0.8" fill="#EDEEF1"/><circle cx="12" cy="20.4" r="0.6" fill="#5B6472"/></svg>
+          </div>
+          <div class="thumb" title="Apple Watch">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="7" y="6" width="10" height="12" rx="3" fill="#323945"/><rect x="8.3" y="7.3" width="7.4" height="9.4" rx="1.8" fill="#EDEEF1"/><rect x="9.5" y="2" width="5" height="4" rx="1.5" fill="#5B6472"/><rect x="9.5" y="18" width="5" height="4" rx="1.5" fill="#5B6472"/><rect x="17" y="9.5" width="1.6" height="3" rx="0.8" fill="#5B6472"/></svg>
+          </div>
+          <div class="thumb" title="Ladekabel">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="6" height="4" rx="1.3" fill="#5B6472"/><path d="M9 12h4" stroke="#5B6472" stroke-width="1.6" stroke-linecap="round"/><rect x="13" y="8" width="8" height="8" rx="1.5" fill="#EDEEF1" stroke="#C7CBD3" stroke-width="0.6"/><path d="M17 10.5v3M15.5 12h3" stroke="#5B6472" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
         </div>
       </div>
       <div class="order-details">
