@@ -183,7 +183,7 @@
   .container {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 24px 32px 64px;
+    padding: 20px 32px 64px;
   }
 
   .breadcrumb {
@@ -195,7 +195,8 @@
     margin-bottom: 24px;
   }
   .breadcrumb a { color: var(--color-text-muted); }
-  .breadcrumb .current { color: var(--color-text-default); }
+  .breadcrumb .current { color: var(--color-text-default); font-size: 16px; }
+  .breadcrumb .separator { font-size: 16px; }
 
   h1.page-title {
     font-size: 32px;
@@ -231,7 +232,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: 24px 24px 20px;
+    padding: 20px 20px 20px;
   }
   .orders-card-header .section-title { margin: 0; }
   .orders-card-header .btn-show-all {
@@ -247,7 +248,7 @@
     grid-template-columns: minmax(240px, 2.3fr) minmax(140px, 1.3fr) minmax(90px, 0.7fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
     gap: 16px;
     align-items: center;
-    padding: 0 24px;
+    padding: 0 20px;
   }
   .orders-table-head {
     padding-bottom: 12px;
@@ -362,7 +363,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 24px;
+    padding: 20px 20px;
     border-bottom: 1px solid #ECEDF0;
     cursor: pointer;
   }
@@ -375,7 +376,7 @@
     margin-bottom: 2px;
   }
   .settings-desc {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 19px;
     color: var(--color-text-muted);
   }
@@ -458,9 +459,9 @@
 
     <nav class="breadcrumb">
       <a href="#">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <span>/</span>
+      <span class="separator">/</span>
       <span class="current">Mein Konto</span>
     </nav>
 
@@ -486,7 +487,7 @@
       <!-- Order 1 -->
       <div class="order-row">
         <div class="order-cell-order">
-          <a class="order-title" href="#">Order #2015368172-00: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</a>
+          <a class="order-title" href="#">Order #2015382248: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</a>
         </div>
         <div class="order-cell-products">
           <div class="order-thumbs">
@@ -496,7 +497,7 @@
           </div>
         </div>
         <div class="order-cell-sum">
-          <span class="order-detail-value">348,00 &euro;</span>
+          <span class="order-detail-value">2.481,72 &euro;</span>
         </div>
         <div class="order-cell-invoice">
           <span class="order-detail-value">&ndash;</span>
@@ -509,7 +510,7 @@
       <!-- Order 2 -->
       <div class="order-row">
         <div class="order-cell-order">
-          <a class="order-title" href="#">Order #2015368172-00: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</a>
+          <a class="order-title" href="#">Order #2015386661: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</a>
         </div>
         <div class="order-cell-products">
           <div class="order-thumbs">
@@ -519,7 +520,7 @@
           </div>
         </div>
         <div class="order-cell-sum">
-          <span class="order-detail-value">348,00 &euro;</span>
+          <span class="order-detail-value">2.864,12 &euro;</span>
         </div>
         <div class="order-cell-invoice">
           <span class="order-detail-value">&ndash;</span>
@@ -532,7 +533,7 @@
       <!-- Order 3 -->
       <div class="order-row">
         <div class="order-cell-order">
-          <a class="order-title" href="#">Order #2015368172-00: Apple AirPods 4 AirPods B... und 3 Weitere Artikel</a>
+          <a class="order-title" href="#">Order #2015381330: Apple AirPods 4 und 3 weitere Artikel</a>
         </div>
         <div class="order-cell-products">
           <div class="order-thumbs">
@@ -551,7 +552,7 @@
           </div>
         </div>
         <div class="order-cell-sum">
-          <span class="order-detail-value">348,00 &euro;</span>
+          <span class="order-detail-value">4.678,02 &euro;</span>
         </div>
         <div class="order-cell-invoice">
           <span class="order-detail-value link">Herunterladen
@@ -570,7 +571,7 @@
       <div class="settings-row">
         <div>
           <div class="settings-label">Profil</div>
-          <div class="settings-desc">Adresse, Beispiel 2, Beispiel 3</div>
+          <div class="settings-desc">Name, Adresse und Kontaktdaten verwalten</div>
         </div>
         <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
