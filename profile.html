@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mein Konto | Conrad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #376EEF;
+    --color-primary-hover: #0F40B5;
+    --color-secondary: #E4E5FD;
+    --color-secondary-hover: #C8CCFB;
+    --color-success: #1BBC9B;
+    --color-warning: #ffff00;
+    --color-error: #DC4948;
+    --color-bg-page: #F4F5F7;
+    --color-bg-card: #ffffff;
+    --color-neutral-btn: #F4F5F7;
+    --color-neutral-btn-hover: #E4E6EB;
+    --color-text-default: #323945;
+    --color-text-muted: #6B7280;
+    --font-family: 'Inter', sans-serif;
+    --radius-card: 8px;
+    --radius-btn: 8px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: var(--color-bg-page);
+    color: var(--color-text-default);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Top utility bar */
+  .utility-bar {
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 19px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 8px 32px;
+    flex-wrap: wrap;
+  }
+  .utility-bar span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  /* Main header */
+  .main-header {
+    background: #0B1E4B;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+  }
+  .nav-categories {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+  }
+  .header-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .icon-btn {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .user-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+  .user-badge {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #14295E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pro-tag {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+  .user-name { font-size: 14px; font-weight: 600; line-height: 18px; }
+  .user-sub { font-size: 12px; color: #A8B3D1; line-height: 16px; }
+
+  /* Search bar */
+  .search-bar {
+    background: #14295E;
+    padding: 20px 32px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .search-input-wrap {
+    flex: 1;
+    max-width: 100%;
+  }
+  .search-input {
+    width: 100%;
+    height: 48px;
+    border-radius: var(--radius-btn);
+    border: none;
+    padding: 0 16px;
+    font-family: var(--font-family);
+    font-size: 14px;
+    color: #ffffff;
+    background: #14295E;
+    outline: none;
+  }
+  .search-input::placeholder { color: #A8B3D1; }
+  .btn {
+    height: 48px;
+    padding: 0 16px;
+    border-radius: var(--radius-btn);
+    border: none;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--color-primary); color: #fff; }
+  .btn-primary:hover { background: var(--color-primary-hover); }
+
+  /* Page container */
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 20px 32px 64px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+  }
+  .breadcrumb a { color: var(--color-text-muted); }
+  .breadcrumb .current { color: var(--color-text-default); font-size: 16px; }
+  .breadcrumb .separator { font-size: 16px; }
+
+  /* Demo notice banner */
+  .demo-banner {
+    background: #FFF6D6;
+    color: #6B5B12;
+    border-radius: var(--radius-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .demo-banner-btn {
+    height: 36px;
+    padding: 0 16px;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  h1.page-title {
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+
+  .profile-meta {
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--color-text-default);
+    margin: 0 0 32px;
+  }
+
+  .section-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  h2.section-title {
+    font-size: 24px;
+    line-height: 38px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  /* Layout: sidebar + content */
+  .account-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 264px;
+    flex-shrink: 0;
+    background: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
+    padding: 24px 16px;
+  }
+  .sidebar h2 {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+    margin: 0 0 16px;
+    padding: 0 8px;
+  }
+  .sidebar-group {
+    padding: 8px 0;
+    border-top: 1px solid #ECEDF0;
+  }
+  .sidebar-group:first-of-type { border-top: none; }
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 500;
+    color: var(--color-text-default);
+    cursor: pointer;
+  }
+  .sidebar-link:hover { background: var(--color-neutral-btn); }
+  .sidebar-link.active { background: var(--color-secondary); color: var(--color-primary-hover); font-weight: 600; }
+  .sidebar-link svg { flex-shrink: 0; }
+
+  /* Content */
+  .account-content { flex: 1; min-width: 0; }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .info-card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
+    padding: 20px;
+  }
+  .info-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .info-card-header h3 {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .info-card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+  .info-card-action:hover { color: var(--color-primary-hover); }
+
+  .info-card-body {
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--color-text-default);
+  }
+  .info-card-body p { margin: 0 0 4px; }
+  .info-card-body p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 900px) {
+    .account-layout { flex-direction: column; }
+    .sidebar { width: 100%; }
+  }
+  @media (max-width: 640px) {
+    .utility-bar { display: none; }
+    .container { padding: 16px 16px 48px; }
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="utility-bar">
+    <span>&#10003; Alles f&uuml;r Ihre Technik</span>
+    <span>&#10003; Lieferungen in 24h</span>
+    <span>&#10003; Garantiertes R&uuml;ckgaberecht</span>
+    <span>&#10003; Fachhandel seit 1923</span>
+  </div>
+
+  <header class="main-header">
+    <div class="logo">CONRAD</div>
+    <div class="nav-categories">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Kategorien
+    </div>
+    <div class="header-right">
+      <div class="header-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Hilfe &amp; Support
+      </div>
+      <div class="icon-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.35-9.5-9C.7 8.1 2.4 4 6.2 4c2.1 0 3.5 1.2 4.3 2.4C11.3 5.2 12.7 4 14.8 4 18.6 4 20.3 8.1 18.5 12c-2.5 4.65-9.5 9-9.5 9z" stroke="white" stroke-width="1.5"/></svg>
+      </div>
+      <div class="icon-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 4h2l2.5 12.5A2 2 0 0 0 10.45 18h7.1a2 2 0 0 0 1.95-1.5L21 8H6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.2" fill="white"/><circle cx="18" cy="21" r="1.2" fill="white"/></svg>
+      </div>
+      <div class="user-block">
+        <div class="user-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="pro-tag">PRO</span>
+        </div>
+        <div>
+          <div class="user-name">Max Mustermann</div>
+          <div class="user-sub">Conrad Electronic SE</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-bar">
+    <div class="search-input-wrap">
+      <input class="search-input" type="text" placeholder="Stellen Sie ein Frage, zum Beispiel: Welche Spannung ben&ouml;tige ich f&uuml;r ein Labornetzger&auml;t?">
+    </div>
+    <button class="btn btn-primary">Suchen</button>
+  </div>
+
+  <div class="container">
+
+    <nav class="breadcrumb">
+      <a href="#">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="separator">/</span>
+      <span class="current">Mein Konto</span>
+    </nav>
+
+    <div class="demo-banner">
+      <span>This is an example of a page in the &ldquo;My account&rdquo; section.</span>
+      <a href="index.html" class="btn btn-primary demo-banner-btn">Back to overview</a>
+    </div>
+
+    <div class="account-layout">
+
+      <aside class="sidebar">
+        <h2>Mein Konto</h2>
+
+        <div class="sidebar-group">
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            &Uuml;bersichtsseite
+          </div>
+        </div>
+
+        <div class="sidebar-group">
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 21V6a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 10h4a1 1 0 0 1 1 1v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 9h1M8 13h1M11 9h1M11 13h1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Rollenmanagement
+          </div>
+          <div class="sidebar-link active">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Profil
+          </div>
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-6.5-5.2-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.8 12 21 12 21z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="10.2" r="2.2" stroke="currentColor" stroke-width="1.5"/></svg>
+            Adressen
+          </div>
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9.5h18" stroke="currentColor" stroke-width="1.5"/></svg>
+            Zahlungsart
+          </div>
+        </div>
+
+        <div class="sidebar-group">
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 11h18" stroke="currentColor" stroke-width="1.5"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.5"/></svg>
+            Bestellungen
+          </div>
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 3h10l1 5H6l1-5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 8h12v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Angebotsanforderungen
+          </div>
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 7v10l8 4 8-4V7" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 11v10" stroke="currentColor" stroke-width="1.5"/></svg>
+            R&uuml;cksendungen
+          </div>
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Rechnungen &amp; Gutschriften
+          </div>
+        </div>
+
+        <div class="sidebar-group">
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            Merklisten
+          </div>
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5h16M4 9h16M4 13h10M4 17h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M17 15l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Produktvergleich
+          </div>
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.6 5.6 6.1.6-4.6 4 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4 6.1-.6L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            Empfehlungen
+          </div>
+        </div>
+
+        <div class="sidebar-group">
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m3.5 6 8.5 6 8.5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Newsletter
+          </div>
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            OCI-Webshopanbindung
+          </div>
+          <div class="sidebar-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 11l8-7 8 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Conrad PRO
+          </div>
+        </div>
+      </aside>
+
+      <div class="account-content">
+
+        <h1 class="page-title">Profil</h1>
+        <p class="profile-meta">Kundennummer: 0012933066</p>
+
+        <div class="section-row">
+          <h2 class="section-title">Login</h2>
+          <button class="btn btn-primary">Zur Login-Verwaltung</button>
+        </div>
+
+        <h2 class="section-title">Pers&ouml;nliche Daten</h2>
+
+        <div class="cards-grid">
+
+          <!-- Profildaten -->
+          <div class="info-card">
+            <div class="info-card-header">
+              <h3>Profildaten</h3>
+              <span class="info-card-action">Bearbeiten</span>
+            </div>
+            <div class="info-card-body">
+              <p>Max Mustermann</p>
+            </div>
+          </div>
+
+          <!-- Bankverbindung -->
+          <div class="info-card">
+            <div class="info-card-header">
+              <h3>Bankverbindung</h3>
+              <span class="info-card-action">Bearbeiten</span>
+            </div>
+            <div class="info-card-body">
+              <p>Kontoinhaber: Max Mustermann</p>
+              <p>IBAN: XXXXXXXXXXXXX123456</p>
+            </div>
+          </div>
+
+          <!-- Rechnungsadresse -->
+          <div class="info-card">
+            <div class="info-card-header">
+              <h3>Rechnungsadresse</h3>
+              <span class="info-card-action">Bearbeiten</span>
+            </div>
+            <div class="info-card-body">
+              <p>DB Systemtechnik GmbH</p>
+              <p>c/o DB Mobility Logistics AG</p>
+              <p>FBA</p>
+              <p>Europaplatz 1</p>
+              <p>10557 Berlin</p>
+              <p>Deutschland</p>
+              <p>&nbsp;</p>
+              <p>Tel.: 03029764280</p>
+              <p>&nbsp;</p>
+              <p>Per Post</p>
+            </div>
+          </div>
+
+          <!-- Zusätzliche E-Mail-Adresse -->
+          <div class="info-card">
+            <div class="info-card-header">
+              <h3>Zus&auml;tzliche E-Mail-Adresse</h3>
+              <span class="info-card-action">Bearbeiten</span>
+            </div>
+            <div class="info-card-body">
+              <p>Kommunikations-E-Mail: max.mustermann@dbsystemtechnik.de</p>
+              <p>Buchhaltungsadresse:</p>
+              <p>Rechnungen:</p>
+              <p>Spedition:</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
