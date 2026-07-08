@@ -211,6 +211,13 @@
     margin: 0 0 16px;
   }
 
+  h3.section-title {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+
   /* Orders table card */
   .orders-card {
     background: var(--color-bg-card);
@@ -230,7 +237,7 @@
   .orders-card-header .btn-show-all {
     height: 36px;
     padding: 0 16px;
-    border-radius: 999px;
+    border-radius: var(--radius-btn);
     font-size: 13px;
   }
 
@@ -313,6 +320,11 @@
     max-height: 100%;
     object-fit: contain;
   }
+  .order-thumbs .thumb-more {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
 
   .order-detail-value {
     font-size: 14px;
@@ -329,14 +341,15 @@
   .order-detail-value.link:hover { color: var(--color-primary-hover); }
 
   .btn-show-all {
-    background: var(--color-secondary);
+    background: transparent;
     color: var(--color-text-default);
+    border: 1px solid #D1D5DB;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-weight: 500;
   }
-  .btn-show-all:hover { background: var(--color-secondary-hover); }
+  .btn-show-all:hover { background: var(--color-neutral-btn); }
 
   /* Settings list */
   .settings-card {
@@ -362,7 +375,7 @@
     margin-bottom: 2px;
   }
   .settings-desc {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 19px;
     color: var(--color-text-muted);
   }
@@ -455,7 +468,7 @@
 
     <div class="orders-card">
       <div class="orders-card-header">
-        <h2 class="section-title">Letzte Bestellungen</h2>
+        <h3 class="section-title">Letzte Bestellungen</h3>
         <button class="btn btn-show-all">
           Alle Bestellungen anzeigen
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#323945" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -520,10 +533,6 @@
       <div class="order-row">
         <div class="order-cell-order">
           <a class="order-title" href="#">Order #2015368172-00: Apple AirPods 4 AirPods B... und 3 Weitere Artikel</a>
-          <div class="order-track">
-            DSHWE3487197913
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4 10 14M9 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
         </div>
         <div class="order-cell-products">
           <div class="order-thumbs">
@@ -536,8 +545,8 @@
             <div class="thumb" title="Bambu Lab 3D-Drucker">
               <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
             </div>
-            <div class="thumb" title="Nintendo Switch 2">
-              <img src="images/switch2.png" alt="Nintendo Switch 2">
+            <div class="thumb thumb-more" title="1 weiteres Produkt">
+              <span>+1</span>
             </div>
           </div>
         </div>
