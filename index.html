@@ -209,8 +209,9 @@
     font-size: 24px;
     line-height: 38px;
     font-weight: 700;
-    margin: 0 0 16px;
+    margin: 48px 0 16px;
   }
+  h2.section-title:first-of-type { margin-top: 0; }
 
   h3.section-title {
     font-size: 20px;
@@ -352,35 +353,42 @@
   }
   .btn-show-all:hover { background: var(--color-neutral-btn); }
 
-  /* Settings list */
-  .settings-card {
+  /* Settings cards (3-column grid) */
+  .settings-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .settings-card-item {
     background: var(--color-bg-card);
     border-radius: var(--radius-card);
     box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
-    overflow: hidden;
-  }
-  .settings-row {
+    padding: 24px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 20px;
-    border-bottom: 1px solid #ECEDF0;
-    cursor: pointer;
+    flex-direction: column;
+    gap: 28px;
   }
-  .settings-row:last-child { border-bottom: none; }
-  .settings-row:hover { background: #FAFAFB; }
-  .settings-label {
+  .settings-card-item:hover { box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.08); }
+  .settings-card-icon { color: var(--color-text-default); }
+  .settings-card-icon svg { width: 26px; height: 26px; }
+  .settings-card-title {
     font-size: 16px;
-    line-height: 25px;
+    line-height: 22px;
     font-weight: 600;
-    margin-bottom: 2px;
   }
-  .settings-desc {
-    font-size: 16px;
-    line-height: 19px;
+  .settings-card-desc-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: -14px;
+  }
+  .settings-card-desc {
+    font-size: 14px;
+    line-height: 20px;
     color: var(--color-text-muted);
   }
-  .chevron { color: var(--color-text-muted); flex-shrink: 0; margin-left: 16px; }
+  .settings-card-arrow { color: var(--color-text-muted); flex-shrink: 0; }
 
   @media (max-width: 900px) {
     .orders-table-head .order-cell-invoice,
@@ -389,12 +397,14 @@
     .order-row {
       grid-template-columns: minmax(200px, 2fr) minmax(120px, 1.2fr) minmax(80px, 0.7fr) minmax(90px, 0.8fr);
     }
+    .settings-cards-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
     .utility-bar { display: none; }
     .container { padding: 16px 16px 48px; }
     .orders-card-header { flex-direction: column; align-items: flex-start; gap: 12px; }
     .orders-table-head { display: none; }
+    .settings-cards-grid { grid-template-columns: 1fr; }
     .order-row {
       display: flex;
       flex-direction: column;
@@ -565,64 +575,173 @@
       </div>
     </div>
 
-    <h2 class="section-title">Einstellungen</h2>
+    <h2 class="section-title">Orders</h2>
 
-    <div class="settings-card">
-      <a href="profile.html" class="settings-row">
-        <div>
-          <div class="settings-label">Profil</div>
-          <div class="settings-desc">Name, Adresse und Kontaktdaten verwalten</div>
+    <div class="settings-cards-grid">
+      <a href="orders.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg>
         </div>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="settings-card-title">Bestellungen</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Alle Bestellungen einsehen und verfolgen</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
       </a>
-      <a href="profile.html" class="settings-row">
-        <div>
-          <div class="settings-label">Adressen</div>
-          <div class="settings-desc">Gespeicherte Lieferadressen &auml;ndern</div>
+
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11a5 5 0 0 1 0 10H9"/><path d="m4 10 4-4m-4 4 4 4"/></svg>
         </div>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="settings-card-title">R&uuml;cksendungen</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Retouren starten und den Status verfolgen</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
       </a>
-      <a href="profile.html" class="settings-row">
-        <div>
-          <div class="settings-label">Rollenmanagement</div>
-          <div class="settings-desc">Benutzerrollen und Berechtigungen verwalten</div>
+
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15l-3-1.5-3 1.5-3-1.5-3 1.5V3Z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
         </div>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="settings-card-title">Rechnungen &amp; Gutschriften</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Rechnungen und Gutschriften herunterladen</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
       </a>
-      <a href="profile.html" class="settings-row">
-        <div>
-          <div class="settings-label">Zahlungsart</div>
-          <div class="settings-desc">Bevorzugte Zahlungsmethoden verwalten</div>
+    </div>
+
+    <h2 class="section-title">Einstellungen &ndash; Kartenansicht</h2>
+
+    <div class="settings-cards-grid">
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
         </div>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="settings-card-title">Profil</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Name, Adresse und Kontaktdaten verwalten</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
       </a>
-      <a href="profile.html" class="settings-row">
-        <div>
-          <div class="settings-label">Produktvergleich</div>
-          <div class="settings-desc">Gespeicherte Produktvergleiche ansehen</div>
+
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
         </div>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="settings-card-title">Adressen</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Gespeicherte Lieferadressen &auml;ndern</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
       </a>
-      <a href="profile.html" class="settings-row">
-        <div>
-          <div class="settings-label">Empfehlungen</div>
-          <div class="settings-desc">Pers&ouml;nliche Produktempfehlungen einsehen</div>
+
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="3"/><path d="M2.5 19.5c.9-3.3 3.2-5 6-5s5.1 1.7 6 5"/><circle cx="17" cy="8.5" r="2.3"/><path d="M15 11.3c1.9.4 3.4 1.9 4 4.2"/></svg>
         </div>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="settings-card-title">Rollenmanagement</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Benutzerrollen und Berechtigungen verwalten</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
       </a>
-      <a href="profile.html" class="settings-row">
-        <div>
-          <div class="settings-label">Newsletter</div>
-          <div class="settings-desc">Newsletter-Abonnements verwalten</div>
+
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10.5h18"/><rect x="6" y="14" width="4" height="2" rx="0.5" fill="currentColor" stroke="none"/></svg>
         </div>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="settings-card-title">Zahlungsart</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Bevorzugte Zahlungsmethoden verwalten</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
       </a>
-      <a href="profile.html" class="settings-row">
-        <div>
-          <div class="settings-label">OCI-Webshopanbindung</div>
-          <div class="settings-desc">Anbindung an Ihr Beschaffungssystem konfigurieren</div>
+
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21V9M12 21V4M17 21v-7"/></svg>
         </div>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="settings-card-title">Produktvergleich</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Gespeicherte Produktvergleiche ansehen</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
+      </a>
+
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L12 3Z"/></svg>
+        </div>
+        <div class="settings-card-title">Empfehlungen</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Pers&ouml;nliche Produktempfehlungen einsehen</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
+      </a>
+
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg>
+        </div>
+        <div class="settings-card-title">Newsletter</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Newsletter-Abonnements verwalten</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
+      </a>
+
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v4M15 3v4M7 7h10l-1 5a5 5 0 0 1-8 0L7 7Z"/><path d="M12 16v5"/></svg>
+        </div>
+        <div class="settings-card-title">OCI-Webshopanbindung</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Anbindung an Ihr Beschaffungssystem konfigurieren</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <h2 class="section-title">Conrad PRO</h2>
+
+    <div class="settings-cards-grid">
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="m9 13.5-1.5 6L12 17l4.5 2.5-1.5-6"/></svg>
+        </div>
+        <div class="settings-card-title">Conrad PRO</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Vorteile Ihrer Conrad PRO Mitgliedschaft verwalten</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <h2 class="section-title">Products</h2>
+
+    <div class="settings-cards-grid">
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="m10 14 5-5 2 2-5 5H10v-2Z"/></svg>
+        </div>
+        <div class="settings-card-title">Angebotsaufforderungen</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Individuelle Angebotsanfragen erstellen und verwalten</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
+      </a>
+
+      <a href="profile.html" class="settings-card-item">
+        <div class="settings-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-9C.7 8.1 2.4 4 6.2 4c2.1 0 3.5 1.2 4.3 2.4C11.3 5.2 12.7 4 14.8 4 18.6 4 20.3 8.1 18.5 12c-2.5 4.65-9.5 9-9.5 9z"/></svg>
+        </div>
+        <div class="settings-card-title">Merkliste</div>
+        <div class="settings-card-desc-row">
+          <span class="settings-card-desc">Gespeicherte Produkte auf der Merkliste ansehen</span>
+          <svg class="settings-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
       </a>
     </div>
 
