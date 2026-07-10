@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meine Bestellungen | Conrad</title>
+<title>Bestellung #13589673591 | Conrad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -37,6 +37,7 @@
   }
 
   a { color: inherit; text-decoration: none; }
+  button { font-family: var(--font-family); }
 
   /* Top utility bar */
   .utility-bar {
@@ -176,6 +177,13 @@
   }
   .btn-primary { background: var(--color-primary); color: #fff; }
   .btn-primary:hover { background: var(--color-primary-hover); }
+  .btn-outline {
+    background: var(--color-bg-card);
+    color: var(--color-primary);
+    border: 1.5px solid var(--color-primary);
+  }
+  .btn-outline:hover { background: var(--color-secondary); }
+  .btn-sm { height: 36px; padding: 0 16px; font-size: 13px; font-weight: 600; }
 
   /* Page container */
   .container {
@@ -192,15 +200,44 @@
     color: var(--color-text-muted);
     margin-bottom: 24px;
   }
-  .breadcrumb a { color: var(--color-text-muted); }
+  .breadcrumb a { color: var(--color-text-muted); font-size: 16px; }
   .breadcrumb .current { color: var(--color-text-default); font-size: 16px; }
   .breadcrumb .separator { font-size: 16px; }
+
+  /* Demo notice banner */
+  .demo-banner {
+    background: #FFF6D6;
+    color: #6B5B12;
+    border-radius: var(--radius-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .demo-banner-btn {
+    height: 36px;
+    padding: 0 16px;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
 
   h1.page-title {
     font-size: 32px;
     line-height: 42px;
     font-weight: 700;
     margin: 0 0 24px;
+  }
+
+  h2.section-title {
+    font-size: 24px;
+    line-height: 38px;
+    font-weight: 700;
+    margin: 0;
   }
 
   /* Layout: sidebar + content */
@@ -250,98 +287,97 @@
   /* Content */
   .account-content { flex: 1; min-width: 0; }
 
-  /* Orders toolbar */
-  .orders-toolbar {
-    display: flex;
-    align-items: flex-end;
-    gap: 16px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-  }
-  .orders-search-wrap {
-    flex: 1;
-    min-width: 240px;
-    position: relative;
-  }
-  .orders-search-input {
-    width: 100%;
-    height: 48px;
-    border-radius: var(--radius-btn);
-    border: 1px solid #D1D5DB;
-    padding: 0 44px 0 16px;
-    font-family: var(--font-family);
-    font-size: 14px;
-    color: var(--color-text-default);
-    background: var(--color-bg-card);
-    outline: none;
-  }
-  .orders-search-input::placeholder { color: var(--color-text-muted); }
-  .orders-search-icon {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--color-text-muted);
-    display: flex;
-  }
-  .orders-period-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .orders-period-wrap label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-text-default);
-  }
-  .orders-period-select {
-    height: 48px;
-    min-width: 200px;
-    border-radius: var(--radius-btn);
-    border: 1px solid #D1D5DB;
-    padding: 0 16px;
-    font-family: var(--font-family);
-    font-size: 14px;
-    color: var(--color-text-default);
-    background: var(--color-bg-card);
-    outline: none;
-    cursor: pointer;
-  }
-
-  /* Orders list */
-  .orders-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .order-card {
-    display: block;
-    background: var(--color-bg-card);
-    border-radius: var(--radius-card);
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
-    padding: 20px 20px 24px;
-    cursor: pointer;
-  }
-  .order-card:hover { box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 4px 10px rgba(0,0,0,0.1); }
-  .order-card-top {
+  /* Order detail header */
+  .order-detail-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 24px;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ECEDF0;
+    gap: 16px;
+    margin-bottom: 4px;
   }
-  .order-card-info { flex: 1; min-width: 0; }
-  .order-card-title {
-    display: block;
-    font-size: 16px;
-    line-height: 24px;
+  .order-detail-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .order-detail-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--color-primary);
-    margin-bottom: 10px;
+    cursor: pointer;
   }
-  .order-card-title:hover { color: var(--color-primary-hover); }
+  .order-detail-action:hover { color: var(--color-primary-hover); }
+  .order-detail-menu-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+  }
+  .order-detail-menu-btn:hover { background: var(--color-neutral-btn); }
+  .order-detail-meta {
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--color-text-default);
+    margin: 0 0 24px;
+  }
+  .order-detail-meta p { margin: 0; }
+  .order-detail-meta .order-detail-date { color: var(--color-text-muted); }
+
+  /* Shipment card */
+  .shipment-card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .shipment-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+  }
+  .shipment-card-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .shipment-card-title h3 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .shipment-delivery {
+    font-size: 14px;
+    color: var(--color-text-default);
+  }
+  .shipment-card-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    padding-bottom: 16px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #ECEDF0;
+  }
+  .shipment-card-links .muted { color: var(--color-text-muted); }
+  .shipment-card-links a { color: var(--color-primary); font-weight: 500; }
+  .shipment-card-links a:hover { color: var(--color-primary-hover); }
 
   .status-badge {
     display: inline-flex;
@@ -357,47 +393,17 @@
   .status-cancelled { background: #F4F5F7; color: #6B7280; }
   .status-shipped { background: #0B1E4B; color: #ffffff; }
 
-  .order-card-details {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-  }
-  .detail-cell { min-width: 0; }
-  .detail-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-text-muted);
-    margin-bottom: 4px;
-  }
-  .detail-value {
-    display: block;
-    font-size: 15px;
-    line-height: 22px;
-    font-weight: 600;
-    overflow-wrap: anywhere;
-  }
-  .detail-value.link {
-    color: var(--color-primary);
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-  }
-  .detail-value.link svg { flex-shrink: 0; }
-  .detail-value.link:hover { color: var(--color-primary-hover); }
-
-  .order-card-thumbs {
+  /* Order line items */
+  .order-item {
     display: flex;
-    gap: 8px;
-    flex-shrink: 0;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    max-width: 300px;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ECEDF0;
   }
-  .order-card-thumbs .thumb {
-    width: 64px;
-    height: 64px;
+  .order-item:last-child { border-bottom: none; padding-bottom: 4px; }
+  .order-item-thumb {
+    width: 96px;
+    height: 96px;
     border-radius: 8px;
     background: #F4F5F7;
     border: 1px solid #ECEDF0;
@@ -406,24 +412,158 @@
     justify-content: center;
     flex-shrink: 0;
     overflow: hidden;
-    padding: 4px;
+    padding: 8px;
   }
-  .order-card-thumbs .thumb img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+  .order-item-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .order-item-info { flex: 1; min-width: 0; }
+  .order-item-title {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .order-item-meta {
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--color-text-muted);
+    margin: 0 0 2px;
+  }
+  .order-item-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .energy-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    background: var(--color-success);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 3px;
+    line-height: 14px;
+  }
+  .order-item-badge-row a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .order-item-badge-row a:hover { color: var(--color-primary-hover); }
+  .order-item-remark {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .order-item-remark-label { color: var(--color-text-muted); margin-bottom: 2px; }
+
+  .order-item-side {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    min-width: 150px;
+  }
+  .order-item-qty { font-size: 14px; color: var(--color-text-default); }
+  .order-item-price { text-align: right; }
+  .order-item-price-old {
+    display: block;
+    font-size: 13px;
+    color: var(--color-error);
+    text-decoration: line-through;
+  }
+  .order-item-price-current {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 2px 0;
+  }
+  .order-item-price-extra {
+    display: block;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    line-height: 18px;
+  }
+
+  /* Order summary card */
+  .summary-card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
+    padding: 20px;
+    margin-bottom: 32px;
+  }
+  .summary-card h2.section-title {
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #ECEDF0;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+    row-gap: 32px;
+  }
+  .summary-block h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+  .summary-block .summary-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--color-text-default);
+  }
+  .summary-block .summary-text p { margin: 0; }
+  .summary-block a.summary-link {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .summary-block a.summary-link:hover { color: var(--color-primary-hover); }
+
+  .totals-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 4px 0;
+  }
+  .totals-row.total {
+    border-top: 1px solid #ECEDF0;
+    margin-top: 8px;
+    padding-top: 12px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  /* Return section */
+  .return-section h2.section-title { margin-bottom: 12px; }
+  .return-section p {
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--color-text-default);
+    margin: 0 0 20px;
+    max-width: 760px;
   }
 
   @media (max-width: 900px) {
     .account-layout { flex-direction: column; }
     .sidebar { width: 100%; }
-    .order-card-details { grid-template-columns: repeat(2, 1fr); }
+    .summary-grid { grid-template-columns: 1fr; row-gap: 24px; }
   }
   @media (max-width: 640px) {
     .utility-bar { display: none; }
     .container { padding: 16px 16px 48px; }
-    .order-card-top { flex-direction: column; }
-    .order-card-thumbs { justify-content: flex-start; max-width: none; }
+    .order-item { flex-direction: column; }
+    .order-item-side { align-items: flex-start; width: 100%; flex-direction: row; justify-content: space-between; }
+    .order-item-price { text-align: left; }
   }
 </style>
 </head>
@@ -480,8 +620,15 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <span class="separator">/</span>
-      <span class="current">Mein Konto</span>
+      <a href="index.html">Mein Konto</a>
+      <span class="separator">/</span>
+      <span class="current">Bestellungen</span>
     </nav>
+
+    <div class="demo-banner">
+      <span>This is an example of an order detail page.</span>
+      <a href="index.html" class="btn btn-primary demo-banner-btn">Back to overview</a>
+    </div>
 
     <div class="account-layout">
 
@@ -566,149 +713,129 @@
 
       <div class="account-content">
 
-        <h1 class="page-title">Meine Bestellungen</h1>
-
-        <div class="orders-toolbar">
-          <div class="orders-search-wrap">
-            <input class="orders-search-input" type="text" placeholder="Suche meine Bestellungen">
-            <span class="orders-search-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#6B7280" stroke-width="1.8"/><path d="m20 20-3.5-3.5" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div class="order-detail-header">
+          <div class="order-detail-heading">
+            <h1 class="page-title" style="margin:0;">Bestellung #13589673591</h1>
+            <span class="order-detail-action">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h2l2.5 12.5A2 2 0 0 0 10.45 18h7.1a2 2 0 0 0 1.95-1.5L21 8H6" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.2" fill="#376EEF"/><circle cx="18" cy="21" r="1.2" fill="#376EEF"/></svg>
+              Alle hinzuf&uuml;gen
             </span>
           </div>
-          <div class="orders-period-wrap">
-            <label for="orders-period">Zeitraum</label>
-            <select id="orders-period" class="orders-period-select">
-              <option>Alle Bestellungen</option>
-              <option>Letzte 30 Tage</option>
-              <option>Letzte 6 Monate</option>
-              <option>Dieses Jahr</option>
-            </select>
+          <button class="order-detail-menu-btn" aria-label="Weitere Optionen">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="19" r="1.6" fill="currentColor"/></svg>
+          </button>
+        </div>
+
+        <div class="order-detail-meta">
+          <p>Auftragsnummer: Lorem ipsum dolor sit amet</p>
+          <p class="order-detail-date">Abgeschlossen am 26.09.2025</p>
+        </div>
+
+        <div class="shipment-card">
+          <div class="shipment-card-top">
+            <div class="shipment-card-title">
+              <h3>Sendung 1</h3>
+              <span class="status-badge status-open">Offen</span>
+            </div>
+            <div class="shipment-delivery">Lieferung: 21.11.2025</div>
+          </div>
+
+          <div class="shipment-card-links">
+            <span class="muted">Sendungsnummer: DSHWE3487197346</span>
+            <a href="#">Rechnung herunterladen</a>
+            <a href="#">Lieferschein herunterladen</a>
+          </div>
+
+          <!-- Item 1 -->
+          <div class="order-item">
+            <div class="order-item-thumb">
+              <img src="images/switch2.png" alt="Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)">
+            </div>
+            <div class="order-item-info">
+              <h4 class="order-item-title">Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</h4>
+              <p class="order-item-meta">Bestell-Nr.: 1842446 - 62</p>
+              <p class="order-item-meta">Einzelpreis: 2.481,72 &euro;</p>
+              <div class="order-item-badge-row">
+                <span class="energy-badge">B</span>
+                <a href="#">Produktdatenblatt</a>
+              </div>
+            </div>
+            <div class="order-item-side">
+              <div class="order-item-price">
+                <span class="order-item-price-current">2.481,72 &euro;</span>
+              </div>
+              <div class="order-item-qty">St&uuml;ck: 1</div>
+              <button class="btn btn-primary btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right:6px"><path d="M4 4h2l2.5 12.5A2 2 0 0 0 10.45 18h7.1a2 2 0 0 0 1.95-1.5L21 8H6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.2" fill="white"/><circle cx="18" cy="21" r="1.2" fill="white"/></svg>
+                Hinzuf&uuml;gen
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="summary-card">
+          <h2 class="section-title">Bestell&uuml;bersicht</h2>
+
+          <div class="summary-grid">
+            <div class="summary-block">
+              <h4>Verk&auml;ufer</h4>
+              <div class="summary-text">
+                <p>Conrad Electronics</p>
+              </div>
+              <a class="summary-link" href="#">Verk&auml;ufer kontaktieren</a>
+            </div>
+
+            <div class="summary-block">
+              <h4>Bestellsumme</h4>
+              <div class="totals-row"><span>Nettopreis</span><span>252,06 &euro;</span></div>
+              <div class="totals-row"><span>Versand</span><span>0,00 &euro;</span></div>
+              <div class="totals-row"><span>MwSt.</span><span>47,89 &euro;</span></div>
+              <div class="totals-row total"><span>Gesamtpreis</span><span>252,06 &euro;</span></div>
+            </div>
+
+            <div class="summary-block">
+              <h4>Zahlungsart</h4>
+              <div class="summary-text">
+                <p>Rechnung</p>
+              </div>
+              <a class="summary-link" href="#">Rechnung 1 Herunterladen</a>
+            </div>
+
+            <div class="summary-block">
+              <h4>Rechnungsadresse</h4>
+              <div class="summary-text">
+                <p>Simon Gussing GmbH</p>
+                <p>Europaplatz 1</p>
+                <p>10557 Berlin</p>
+                <p>Deutschland</p>
+              </div>
+            </div>
+
+            <div class="summary-block">
+              <h4>Lieferung</h4>
+              <div class="summary-text">
+                <p>Standard-Versand</p>
+                <p>Versandkostenfrei</p>
+              </div>
+            </div>
+
+            <div class="summary-block">
+              <h4>Lieferungsadresse</h4>
+              <div class="summary-text">
+                <p>Simon Gussing GmbH</p>
+                <p>Europaplatz 1</p>
+                <p>10557 Berlin</p>
+                <p>Deutschland</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="orders-list">
-
-          <!-- Order 1: same mock data as index.html order #2015382248 -->
-          <a class="order-card" href="order-detail.html">
-            <div class="order-card-top">
-              <div class="order-card-info">
-                <span class="order-card-title">Order #2015382248: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</span>
-                <span class="status-badge status-open">Offen</span>
-              </div>
-              <div class="order-card-thumbs">
-                <div class="thumb" title="Nintendo Switch 2">
-                  <img src="images/switch2.png" alt="Nintendo Switch 2">
-                </div>
-              </div>
-            </div>
-            <div class="order-card-details">
-              <div class="detail-cell">
-                <span class="detail-label">Datum</span>
-                <span class="detail-value">5 Jul</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Preis</span>
-                <span class="detail-value">2.481,72 &euro;</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Sendung</span>
-                <span class="detail-value">&ndash;</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Zahlungsstatus</span>
-                <span class="detail-value">Ausstehend</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Rechnung</span>
-                <span class="detail-value">&ndash;</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Order 2: same mock data as index.html order #2015386661 -->
-          <a class="order-card" href="order-detail.html">
-            <div class="order-card-top">
-              <div class="order-card-info">
-                <span class="order-card-title">Order #2015386661: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</span>
-                <span class="status-badge status-cancelled">Storniert</span>
-              </div>
-              <div class="order-card-thumbs">
-                <div class="thumb" title="Yageo Widerstand">
-                  <img src="images/yageo.png" alt="Yageo Widerstand">
-                </div>
-              </div>
-            </div>
-            <div class="order-card-details">
-              <div class="detail-cell">
-                <span class="detail-label">Datum</span>
-                <span class="detail-value">28 Jun</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Preis</span>
-                <span class="detail-value">2.864,12 &euro;</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Sendung</span>
-                <span class="detail-value">&ndash;</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Zahlungsstatus</span>
-                <span class="detail-value">Abgebrochen</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Rechnung</span>
-                <span class="detail-value">&ndash;</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Order 3: same mock data as index.html order #2015381330 -->
-          <a class="order-card" href="order-detail.html">
-            <div class="order-card-top">
-              <div class="order-card-info">
-                <span class="order-card-title">Order #2015381330: Apple AirPods 4 und 3 weitere Artikel</span>
-                <span class="status-badge status-shipped">Versendet</span>
-              </div>
-              <div class="order-card-thumbs">
-                <div class="thumb" title="Apple iPhone">
-                  <img src="images/iphone.png" alt="Apple iPhone">
-                </div>
-                <div class="thumb" title="Samsung Galaxy XCover">
-                  <img src="images/samsung-xcover.png" alt="Samsung Galaxy XCover">
-                </div>
-                <div class="thumb" title="Bambu Lab 3D-Drucker">
-                  <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
-                </div>
-              </div>
-            </div>
-            <div class="order-card-details">
-              <div class="detail-cell">
-                <span class="detail-label">Datum</span>
-                <span class="detail-value">14 Jun</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Preis</span>
-                <span class="detail-value">4.678,02 &euro;</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Sendung</span>
-                <span class="detail-value link">DSHWE5512983047
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 3h6v6M10 14 21 3" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Zahlungsstatus</span>
-                <span class="detail-value">Bezahlt</span>
-              </div>
-              <div class="detail-cell">
-                <span class="detail-label">Rechnung</span>
-                <span class="detail-value link">Herunterladen
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-              </div>
-            </div>
-          </a>
-
+        <div class="return-section">
+          <h2 class="section-title">Zur&uuml;cksenden</h2>
+          <p>Sie m&ouml;chten einen Artikel aus dieser Bestellung zur&uuml;ckschicken? Nutzen Sie schnell und einfach unser R&uuml;ckendeportal. Bitte hinterlegen Sie eine g&uuml;ltige IBAN in Ihrem Kundenkonto, um eine schnelle und reibungslose R&uuml;ckabwicklung Ihrer Zahlung zu gew&auml;hrleisten.</p>
+          <button class="btn btn-outline">Artikel zur&uuml;cksenden</button>
         </div>
 
       </div>

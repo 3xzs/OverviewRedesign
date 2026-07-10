@@ -248,8 +248,11 @@
     padding-top: 16px;
     padding-bottom: 16px;
     border-bottom: 1px solid #ECEDF0;
+    cursor: pointer;
+    color: inherit;
   }
   .order-row:last-child { border-bottom: none; }
+  .order-row:hover { background: var(--color-neutral-btn); }
 
   .order-title {
     display: block;
@@ -467,9 +470,9 @@
       </div>
 
       <!-- Order 1 -->
-      <div class="order-row">
+      <a class="order-row" href="order-detail.html">
         <div class="order-cell-order">
-          <a class="order-title" href="#">Order #2015382248: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</a>
+          <span class="order-title">Order #2015382248: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</span>
           <span class="order-track">03.07.2026</span>
         </div>
         <div class="order-cell-products">
@@ -488,12 +491,12 @@
         <div class="order-cell-status">
           <span class="status-badge status-open">Offen</span>
         </div>
-      </div>
+      </a>
 
       <!-- Order 2 -->
-      <div class="order-row">
+      <a class="order-row" href="order-detail.html">
         <div class="order-cell-order">
-          <a class="order-title" href="#">Order #2015386661: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</a>
+          <span class="order-title">Order #2015386661: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</span>
           <span class="order-track">28.06.2026</span>
         </div>
         <div class="order-cell-products">
@@ -512,12 +515,12 @@
         <div class="order-cell-status">
           <span class="status-badge status-cancelled">Storniert</span>
         </div>
-      </div>
+      </a>
 
       <!-- Order 3 -->
-      <div class="order-row">
+      <a class="order-row" href="order-detail.html">
         <div class="order-cell-order">
-          <a class="order-title" href="#">Order #2015381330: Apple AirPods 4 und 3 weitere Artikel</a>
+          <span class="order-title">Order #2015381330: Apple AirPods 4 und 3 weitere Artikel</span>
           <span class="order-track">19.06.2026</span>
         </div>
         <div class="order-cell-products">
@@ -547,7 +550,7 @@
         <div class="order-cell-status">
           <span class="status-badge status-shipped">Versendet</span>
         </div>
-      </div>
+      </a>
     </div>
 
     <h2 class="section-title">Bestellungen</h2>
