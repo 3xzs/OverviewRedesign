@@ -178,6 +178,8 @@
   .btn-primary:hover { background: var(--color-primary-hover); }
   .btn-neutral { background: var(--color-neutral-btn); color: var(--color-text-default); }
   .btn-neutral:hover { background: var(--color-neutral-btn-hover); }
+  .btn-secondary { background: var(--color-secondary); color: rgb(12, 52, 145); font-weight: 500; font-size: 16px; padding-left: 15px; padding-right: 15px; }
+  .btn-secondary:hover { background: var(--color-secondary-hover); }
 
   /* Page container */
   .container {
@@ -342,6 +344,50 @@
     cursor: pointer;
   }
   .order-detail-value.link:hover { color: var(--color-primary-hover); }
+
+  /* Invoice due banner */
+  .invoice-banner {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .invoice-banner-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #FFEADF;
+    color: #b75d38;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .invoice-banner-text { flex: 1; min-width: 0; }
+  .invoice-banner-title {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+  .invoice-banner-sub {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+  }
+  .invoice-banner-btn {
+    flex-shrink: 0;
+    gap: 8px;
+  }
+  @media (max-width: 640px) {
+    .invoice-banner {
+      flex-wrap: wrap;
+      padding: 16px;
+    }
+  }
 
   /* Multi-shipment order group */
   .order-row-group { border-bottom: 1px solid #ECEDF0; }
@@ -555,6 +601,20 @@
     </nav>
 
     <h1 class="page-title">Guten Tag Max Mustermann</h1>
+
+    <div class="invoice-banner">
+      <div class="invoice-banner-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15l-3-1.5-3 1.5-3-1.5-3 1.5V3Z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+      </div>
+      <div class="invoice-banner-text">
+        <div class="invoice-banner-title">Sie haben eine Rechnung, die in 14 Tagen f&auml;llig wird</div>
+        <div class="invoice-banner-sub">F&auml;llig am 27.07.2026 &middot; 2.481,72 &euro;</div>
+      </div>
+      <button class="btn btn-secondary invoice-banner-btn">
+        Herunterladen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="rgb(12, 52, 145)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
 
     <h2 class="section-title">Letzte Bestellungen</h2>
 
