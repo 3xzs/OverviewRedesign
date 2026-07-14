@@ -387,6 +387,13 @@
       flex-wrap: wrap;
       padding: 16px;
     }
+    .invoice-banner-text {
+      flex-basis: 100%;
+    }
+    .invoice-banner-btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
   /* Multi-shipment order group */
@@ -466,6 +473,7 @@
     color: var(--color-primary);
   }
   .shipment-tracking:hover { color: var(--color-primary-hover); }
+  .shipment-row { display: contents; }
 
   /* Settings cards (3-column grid) */
   .settings-cards-grid {
@@ -521,6 +529,11 @@
   @media (max-width: 640px) {
     .utility-bar { display: none; }
     .container { padding: 16px 16px 48px; }
+    h1.page-title {
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 24px;
+    }
     .orders-table-head { display: none; }
     .settings-cards-grid { grid-template-columns: 1fr; }
     .order-row {
@@ -530,16 +543,35 @@
       gap: 8px;
       padding: 16px;
     }
-    .order-cell-order { order: 1; }
+    .order-cell-order {
+      order: 1;
+      width: 100%;
+    }
+    .order-cell-order .order-title {
+      white-space: normal;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
     .order-cell-status { order: 2; }
     .order-cell-products { order: 3; }
     .order-cell-payment, .order-cell-invoice { order: 4; }
+    .shipment-list {
+      gap: 16px;
+    }
     .shipment-line {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 10px;
       padding: 8px 16px;
-      gap: 8px;
+    }
+    .shipment-label-cell { padding-left: 0; }
+    .shipment-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
   }
 </style>
@@ -698,23 +730,27 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
-            <div class="shipment-thumbs">
-              <div class="thumb" title="Apple iPhone">
-                <img src="images/iphone.png" alt="Apple iPhone">
+            <div class="shipment-row">
+              <div class="shipment-thumbs">
+                <div class="thumb" title="Apple iPhone">
+                  <img src="images/iphone.png" alt="Apple iPhone">
+                </div>
+                <div class="thumb" title="Samsung Galaxy XCover">
+                  <img src="images/samsung-xcover.png" alt="Samsung Galaxy XCover">
+                </div>
               </div>
-              <div class="thumb" title="Samsung Galaxy XCover">
-                <img src="images/samsung-xcover.png" alt="Samsung Galaxy XCover">
+              <div class="shipment-payment">
+                <span class="payment-status">Bezahlt</span>
               </div>
             </div>
-            <div>
-              <span class="payment-status">Bezahlt</span>
+            <div class="shipment-row">
+              <div class="shipment-download">
+                <span class="order-detail-value link">Herunterladen
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+              <span class="status-badge status-shipped">Versendet</span>
             </div>
-            <div>
-              <span class="order-detail-value link">Herunterladen
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </div>
-            <span class="status-badge status-shipped">Versendet</span>
           </div>
 
           <div class="shipment-line">
@@ -724,23 +760,27 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
-            <div class="shipment-thumbs">
-              <div class="thumb" title="Bambu Lab 3D-Drucker">
-                <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
+            <div class="shipment-row">
+              <div class="shipment-thumbs">
+                <div class="thumb" title="Bambu Lab 3D-Drucker">
+                  <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
+                </div>
+                <div class="thumb thumb-more" title="1 weiteres Produkt">
+                  <span>+1</span>
+                </div>
               </div>
-              <div class="thumb thumb-more" title="1 weiteres Produkt">
-                <span>+1</span>
+              <div class="shipment-payment">
+                <span class="payment-status">Bezahlt</span>
               </div>
             </div>
-            <div>
-              <span class="payment-status">Bezahlt</span>
+            <div class="shipment-row">
+              <div class="shipment-download">
+                <span class="order-detail-value link">Herunterladen
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+              <span class="status-badge status-delivered">Zugestellt</span>
             </div>
-            <div>
-              <span class="order-detail-value link">Herunterladen
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </div>
-            <span class="status-badge status-delivered">Zugestellt</span>
           </div>
         </div>
       </div>
