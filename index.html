@@ -54,7 +54,7 @@
   .utility-bar span {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     white-space: nowrap;
   }
 
@@ -106,7 +106,7 @@
   .user-block {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     cursor: pointer;
   }
   .user-badge {
@@ -138,7 +138,7 @@
   /* Search bar */
   .search-bar {
     background: #14295E;
-    padding: 20px 32px;
+    padding: 16px 32px;
     display: flex;
     gap: 16px;
     align-items: center;
@@ -178,14 +178,14 @@
   .btn-primary:hover { background: var(--color-primary-hover); }
   .btn-neutral { background: var(--color-neutral-btn); color: var(--color-text-default); }
   .btn-neutral:hover { background: var(--color-neutral-btn-hover); }
-  .btn-secondary { background: var(--color-secondary); color: rgb(12, 52, 145); font-weight: 500; font-size: 16px; padding-left: 15px; padding-right: 15px; }
+  .btn-secondary { background: var(--color-secondary); color: rgb(12, 52, 145); }
   .btn-secondary:hover { background: var(--color-secondary-hover); }
 
   /* Page container */
   .container {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 20px 32px 64px;
+    padding: 24px 32px 64px;
   }
 
   .breadcrumb {
@@ -236,11 +236,11 @@
     grid-template-columns: minmax(240px, 2.3fr) minmax(140px, 1.3fr) minmax(90px, 0.7fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
     gap: 16px;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 24px;
   }
   .orders-table-head {
-    padding-top: 20px;
-    padding-bottom: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     border-bottom: 1px solid #ECEDF0;
     font-size: 12px;
     font-weight: 600;
@@ -259,7 +259,7 @@
   .order-title {
     display: block;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 22px;
     font-weight: 600;
     color: var(--color-primary);
     white-space: nowrap;
@@ -273,6 +273,7 @@
     gap: 4px;
     margin-top: 4px;
     font-size: 12px;
+    line-height: 19px;
     font-weight: 600;
     color: var(--color-text-muted);
   }
@@ -285,7 +286,7 @@
     display: inline-flex;
     align-items: center;
     width: fit-content;
-    padding: 2px 10px;
+    padding: 4px 8px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
@@ -298,13 +299,14 @@
 
   .payment-status {
     font-size: 14px;
+    line-height: 22px;
     font-weight: 600;
     color: var(--color-text-muted);
   }
 
   .order-thumbs {
     display: flex;
-    gap: 6px;
+    gap: 4px;
     flex-shrink: 0;
   }
   .order-thumbs .thumb {
@@ -318,7 +320,7 @@
     justify-content: center;
     flex-shrink: 0;
     overflow: hidden;
-    padding: 3px;
+    padding: 4px;
   }
   .order-thumbs .thumb img {
     max-width: 100%;
@@ -326,7 +328,8 @@
     object-fit: contain;
   }
   .order-thumbs .thumb-more {
-    font-size: 14px;
+    font-size: 10px;
+    line-height: 16px;
     font-weight: 600;
     color: var(--color-text-muted);
   }
@@ -350,7 +353,7 @@
     background: var(--color-bg-card);
     border-radius: var(--radius-card);
     box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
-    padding: 16px 20px;
+    padding: 16px 24px;
     margin-bottom: 32px;
     display: flex;
     align-items: center;
@@ -370,11 +373,12 @@
   .invoice-banner-text { flex: 1; min-width: 0; }
   .invoice-banner-title {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 25px;
     font-weight: 600;
   }
   .invoice-banner-sub {
     font-size: 12px;
+    line-height: 19px;
     color: var(--color-text-muted);
     margin-top: 2px;
   }
@@ -422,7 +426,7 @@
     grid-template-columns: minmax(240px, 2.3fr) minmax(140px, 1.3fr) minmax(90px, 0.7fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
     gap: 16px;
     align-items: center;
-    padding: 6px 20px;
+    padding: 8px 24px;
   }
   .shipment-label-cell {
     display: flex;
@@ -432,13 +436,14 @@
     padding-left: 24px;
   }
   .shipment-label {
-    font-size: 13px;
+    font-size: 12px;
+    line-height: 19px;
     font-weight: 600;
     color: var(--color-text-muted);
   }
   .shipment-thumbs {
     display: flex;
-    gap: 6px;
+    gap: 4px;
     flex-shrink: 0;
   }
   .shipment-thumbs .thumb {
@@ -452,7 +457,7 @@
     justify-content: center;
     flex-shrink: 0;
     overflow: hidden;
-    padding: 2px;
+    padding: 4px;
   }
   .shipment-thumbs .thumb img {
     max-width: 100%;
@@ -460,7 +465,8 @@
     object-fit: contain;
   }
   .shipment-thumbs .thumb-more {
-    font-size: 11px;
+    font-size: 10px;
+    line-height: 16px;
     font-weight: 600;
     color: var(--color-text-muted);
   }
@@ -468,7 +474,8 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-size: 13px;
+    font-size: 12px;
+    line-height: 19px;
     font-weight: 600;
     color: var(--color-primary);
   }
@@ -482,20 +489,20 @@
     gap: 16px;
   }
   .settings-card-item {
-    border-radius: var(--rounded-xl, 12px);
-    background: var(--background-default, #FEFEFF);
-    box-shadow: 0 2px 4px -1px rgba(17, 18, 19, 0.06), 0 1px 2px 0 rgba(17, 18, 19, 0.08);
-    padding: 20px;
+    border-radius: var(--radius-card);
+    background: var(--color-bg-card);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.06);
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 4px;
   }
-  .settings-card-item:hover { box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.08); }
+  .settings-card-item:hover { box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1); }
   .settings-card-icon { color: var(--color-text-default); margin-bottom: 8px; }
   .settings-card-icon svg { width: 26px; height: 26px; }
   .settings-card-title {
     font-size: 16px;
-    line-height: 22px;
+    line-height: 25px;
     font-weight: 600;
   }
   .settings-card-title-row {
@@ -507,11 +514,11 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 12px;
+    gap: 8px;
   }
   .settings-card-desc {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 22px;
     color: var(--color-text-muted);
   }
   .settings-card-arrow { color: var(--color-text-default); flex-shrink: 0; }
@@ -564,14 +571,14 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      row-gap: 10px;
+      row-gap: 8px;
       padding: 8px 16px;
     }
     .shipment-label-cell { padding-left: 0; }
     .shipment-row {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
     }
   }
 </style>
