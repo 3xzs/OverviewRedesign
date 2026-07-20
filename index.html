@@ -233,7 +233,7 @@
   .orders-table-head,
   .order-row {
     display: grid;
-    grid-template-columns: minmax(240px, 2.3fr) minmax(140px, 1.3fr) minmax(90px, 0.7fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
+    grid-template-columns: minmax(240px, 2.3fr) minmax(140px, 1.3fr) minmax(150px, 1fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
     gap: 16px;
     align-items: center;
     padding: 0 24px;
@@ -258,8 +258,8 @@
 
   .order-title {
     display: block;
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 25px;
     font-weight: 600;
     color: var(--color-primary);
     white-space: nowrap;
@@ -270,7 +270,7 @@
   .order-track {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
     margin-top: 4px;
     font-size: 12px;
     line-height: 19px;
@@ -297,12 +297,6 @@
   .status-shipped { background: #0B1E4B; color: #ffffff; }
   .status-delivered { background: #E1F5EE; color: #085041; }
 
-  .payment-status {
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: 600;
-    color: var(--color-text-muted);
-  }
 
   .order-thumbs {
     display: flex;
@@ -345,6 +339,7 @@
     align-items: center;
     gap: 4px;
     cursor: pointer;
+    white-space: nowrap;
   }
   .order-detail-value.link:hover { color: var(--color-primary-hover); }
 
@@ -405,7 +400,7 @@
   .order-row-group:last-child { border-bottom: none; }
   .order-row-group .order-row-header {
     border-bottom: none;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
   }
   .order-row-group:hover .order-row-header { background: var(--color-neutral-btn); }
 
@@ -414,16 +409,9 @@
     flex-direction: column;
     padding-bottom: 8px;
   }
-  .shipment-list::before {
-    content: '';
-    display: block;
-    height: 1px;
-    background: #D8DAE0;
-    margin: 8px 40px 8px 64px;
-  }
   .shipment-line {
     display: grid;
-    grid-template-columns: minmax(240px, 2.3fr) minmax(140px, 1.3fr) minmax(90px, 0.7fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
+    grid-template-columns: minmax(240px, 2.3fr) minmax(140px, 1.3fr) minmax(150px, 1fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
     gap: 16px;
     align-items: center;
     padding: 8px 24px;
@@ -431,15 +419,17 @@
   .shipment-label-cell {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 16px;
     height: 100%;
     padding-left: 24px;
   }
   .shipment-label {
-    font-size: 12px;
-    line-height: 19px;
+    font-size: 14px;
+    line-height: 22px;
     font-weight: 600;
     color: var(--color-text-muted);
+    margin-right: 32px;
   }
   .shipment-thumbs {
     display: flex;
@@ -474,8 +464,8 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-size: 12px;
-    line-height: 19px;
+    font-size: 14px;
+    line-height: 22px;
     font-weight: 600;
     color: var(--color-primary);
   }
@@ -529,7 +519,7 @@
     .orders-table-head,
     .order-row,
     .shipment-line {
-      grid-template-columns: minmax(200px, 2fr) minmax(120px, 1.2fr) minmax(80px, 0.7fr) minmax(90px, 0.8fr);
+      grid-template-columns: minmax(200px, 2fr) minmax(120px, 1.2fr) minmax(140px, 1fr) minmax(90px, 0.8fr);
     }
     .settings-cards-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -563,7 +553,7 @@
     }
     .order-cell-status { order: 2; }
     .order-cell-products { order: 3; }
-    .order-cell-payment, .order-cell-invoice { order: 4; }
+    .order-cell-track, .order-cell-invoice { order: 4; }
     .shipment-list {
       gap: 16px;
     }
@@ -661,7 +651,7 @@
       <div class="orders-table-head">
         <div>Order</div>
         <div>Produkte</div>
-        <div>Zahlungsstatus</div>
+        <div>Sendung</div>
         <div>Rechnung</div>
         <div>Status</div>
       </div>
@@ -670,7 +660,7 @@
       <a class="order-row" href="order-detail.html">
         <div class="order-cell-order">
           <span class="order-title">Order #2015382248: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</span>
-          <span class="order-track">03.07.2026 &middot; <span class="order-sum">2.481,72 &euro;</span></span>
+          <span class="order-track">03.07.2026 &middot; <span class="order-sum">2.481,72 &euro;</span> &middot; Bezahlt</span>
         </div>
         <div class="order-cell-products">
           <div class="order-thumbs">
@@ -679,8 +669,10 @@
             </div>
           </div>
         </div>
-        <div class="order-cell-payment">
-          <span class="payment-status">Bezahlt</span>
+        <div class="order-cell-track">
+          <span class="order-detail-value link">Verfolgen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
         </div>
         <div class="order-cell-invoice">
           <span class="order-detail-value">&ndash;</span>
@@ -694,7 +686,7 @@
       <a class="order-row" href="order-detail.html">
         <div class="order-cell-order">
           <span class="order-title">Order #2015386661: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</span>
-          <span class="order-track">28.06.2026 &middot; <span class="order-sum">2.864,12 &euro;</span></span>
+          <span class="order-track">28.06.2026 &middot; <span class="order-sum">2.864,12 &euro;</span> &middot; Erstattet</span>
         </div>
         <div class="order-cell-products">
           <div class="order-thumbs">
@@ -703,8 +695,10 @@
             </div>
           </div>
         </div>
-        <div class="order-cell-payment">
-          <span class="payment-status">Erstattet</span>
+        <div class="order-cell-track">
+          <span class="order-detail-value link">Verfolgen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
         </div>
         <div class="order-cell-invoice">
           <span class="order-detail-value">&ndash;</span>
@@ -719,12 +713,12 @@
         <a class="order-row order-row-header" href="order-detail.html">
           <div class="order-cell-order">
             <span class="order-title">Order #2015381330: Apple AirPods 4 und 3 weitere Artikel</span>
-            <span class="order-track">19.06.2026 &middot; <span class="order-sum">4.678,02 &euro;</span></span>
+            <span class="order-track">19.06.2026 &middot; <span class="order-sum">4.678,02 &euro;</span> &middot; Bezahlt</span>
           </div>
           <div class="order-cell-products">
             <span class="order-detail-value">4 Artikel</span>
           </div>
-          <div class="order-cell-payment"></div>
+          <div class="order-cell-track"></div>
           <div class="order-cell-invoice"></div>
           <div class="order-cell-status"></div>
         </a>
@@ -733,9 +727,6 @@
           <div class="shipment-line">
             <div class="shipment-label-cell">
               <span class="shipment-label">Sendung 1</span>
-              <a class="shipment-tracking" href="#">Sendung verfolgen
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
             </div>
             <div class="shipment-row">
               <div class="shipment-thumbs">
@@ -746,8 +737,10 @@
                   <img src="images/samsung-xcover.png" alt="Samsung Galaxy XCover">
                 </div>
               </div>
-              <div class="shipment-payment">
-                <span class="payment-status">Bezahlt</span>
+              <div class="shipment-track">
+                <a class="shipment-tracking" href="#">Verfolgen
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
               </div>
             </div>
             <div class="shipment-row">
@@ -763,9 +756,6 @@
           <div class="shipment-line">
             <div class="shipment-label-cell">
               <span class="shipment-label">Sendung 2</span>
-              <a class="shipment-tracking" href="#">Sendung verfolgen
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
             </div>
             <div class="shipment-row">
               <div class="shipment-thumbs">
@@ -776,8 +766,10 @@
                   <span>+1</span>
                 </div>
               </div>
-              <div class="shipment-payment">
-                <span class="payment-status">Bezahlt</span>
+              <div class="shipment-track">
+                <a class="shipment-tracking" href="#">Verfolgen
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
               </div>
             </div>
             <div class="shipment-row">
