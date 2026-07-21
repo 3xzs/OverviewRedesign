@@ -342,6 +342,7 @@
     white-space: nowrap;
   }
   .order-detail-value.link:hover { color: var(--color-primary-hover); }
+  .order-bottom-row { display: contents; }
 
   /* Invoice due banner */
   .invoice-banner {
@@ -411,7 +412,7 @@
   }
   .shipment-line {
     display: grid;
-    grid-template-columns: minmax(150px, 1.4fr) minmax(100px, 0.9fr) minmax(140px, 1.3fr) minmax(150px, 1fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
+    grid-template-columns: minmax(240px, 2.3fr) minmax(140px, 1.3fr) minmax(150px, 1fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
     gap: 16px;
     align-items: center;
     padding: 8px 24px;
@@ -420,7 +421,7 @@
     border-bottom: 1px solid #ECEDF0;
   }
   .shipment-label-cell {
-    grid-column: 1 / 3;
+    grid-column: 1;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -473,7 +474,7 @@
     color: var(--color-primary);
   }
   .shipment-tracking:hover { color: var(--color-primary-hover); }
-  .shipment-row { display: contents; }
+  .shipment-top-row, .shipment-bottom-row { display: contents; }
 
   /* Settings cards (3-column grid) */
   .settings-cards-grid {
@@ -531,25 +532,8 @@
   @media (max-width: 900px) {
     .orders-table-head .order-cell-invoice,
     .order-cell-invoice { display: none; }
-    .orders-table-head,
-    .order-row {
-      grid-template-columns: minmax(200px, 2fr) minmax(120px, 1.2fr) minmax(140px, 1fr) minmax(90px, 0.8fr);
-    }
-    .shipment-line {
-      grid-template-columns: minmax(110px, 1.2fr) minmax(90px, 0.8fr) minmax(120px, 1.2fr) minmax(140px, 1fr) minmax(90px, 0.8fr);
-    }
     .settings-cards-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 640px) {
-    .utility-bar { display: none; }
-    .container { padding: 16px 16px 48px; }
-    h1.page-title {
-      font-size: 24px;
-      line-height: 30px;
-      margin-bottom: 24px;
-    }
     .orders-table-head { display: none; }
-    .settings-cards-grid { grid-template-columns: 1fr; }
     .order-row {
       display: flex;
       flex-direction: column;
@@ -568,9 +552,15 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
-    .order-cell-status { order: 2; }
-    .order-cell-products { order: 3; }
-    .order-cell-track, .order-cell-invoice { order: 4; }
+    .order-cell-products { order: 2; }
+    .order-bottom-row {
+      order: 3;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      width: 100%;
+    }
     .shipment-list {
       gap: 16px;
     }
@@ -582,11 +572,27 @@
       padding: 8px 16px;
     }
     .shipment-label-cell { padding-left: 0; }
-    .shipment-row {
+    .shipment-top-row {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
     }
+    .shipment-bottom-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+    }
+  }
+  @media (max-width: 640px) {
+    .utility-bar { display: none; }
+    .container { padding: 16px 16px 48px; }
+    h1.page-title {
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 24px;
+    }
+    .settings-cards-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -686,16 +692,18 @@
             </div>
           </div>
         </div>
-        <div class="order-cell-track">
-          <span class="order-detail-value link">Verfolgen
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
-        <div class="order-cell-invoice">
-          <span class="order-detail-value">&ndash;</span>
-        </div>
-        <div class="order-cell-status">
-          <span class="status-badge status-shipped">Versendet</span>
+        <div class="order-bottom-row">
+          <div class="order-cell-track">
+            <span class="order-detail-value link">Verfolgen
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div class="order-cell-invoice">
+            <span class="order-detail-value">&ndash;</span>
+          </div>
+          <div class="order-cell-status">
+            <span class="status-badge status-shipped">Versendet</span>
+          </div>
         </div>
       </a>
 
@@ -712,14 +720,16 @@
             </div>
           </div>
         </div>
-        <div class="order-cell-track">
-          <span class="order-detail-value">&ndash;</span>
-        </div>
-        <div class="order-cell-invoice">
-          <span class="order-detail-value">&ndash;</span>
-        </div>
-        <div class="order-cell-status">
-          <span class="status-badge status-cancelled">Storniert</span>
+        <div class="order-bottom-row">
+          <div class="order-cell-track">
+            <span class="order-detail-value">&ndash;</span>
+          </div>
+          <div class="order-cell-invoice">
+            <span class="order-detail-value">&ndash;</span>
+          </div>
+          <div class="order-cell-status">
+            <span class="status-badge status-cancelled">Storniert</span>
+          </div>
         </div>
       </a>
 
@@ -740,10 +750,10 @@
 
         <div class="shipment-list">
           <div class="shipment-line">
-            <div class="shipment-label-cell">
-              <span class="shipment-label">Sendung 1</span>
-            </div>
-            <div class="shipment-row">
+            <div class="shipment-top-row">
+              <div class="shipment-label-cell">
+                <span class="shipment-label">Sendung 1</span>
+              </div>
               <div class="shipment-thumbs">
                 <div class="thumb" title="Apple iPhone">
                   <img src="images/iphone.png" alt="Apple iPhone">
@@ -752,13 +762,13 @@
                   <img src="images/samsung-xcover.png" alt="Samsung Galaxy XCover">
                 </div>
               </div>
+            </div>
+            <div class="shipment-bottom-row">
               <div class="shipment-track">
                 <a class="shipment-tracking" href="#">Verfolgen
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
               </div>
-            </div>
-            <div class="shipment-row">
               <div class="shipment-download">
                 <span class="order-detail-value link">Herunterladen
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -769,10 +779,10 @@
           </div>
 
           <div class="shipment-line">
-            <div class="shipment-label-cell">
-              <span class="shipment-label">Sendung 2</span>
-            </div>
-            <div class="shipment-row">
+            <div class="shipment-top-row">
+              <div class="shipment-label-cell">
+                <span class="shipment-label">Sendung 2</span>
+              </div>
               <div class="shipment-thumbs">
                 <div class="thumb" title="Bambu Lab 3D-Drucker">
                   <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
@@ -781,13 +791,13 @@
                   <span>+1</span>
                 </div>
               </div>
+            </div>
+            <div class="shipment-bottom-row">
               <div class="shipment-track">
                 <a class="shipment-tracking" href="#">Verfolgen
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
               </div>
-            </div>
-            <div class="shipment-row">
               <div class="shipment-download">
                 <span class="order-detail-value link">Herunterladen
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
