@@ -515,6 +515,18 @@
     color: var(--color-text-muted);
   }
   .settings-card-arrow { color: var(--color-text-default); flex-shrink: 0; }
+  .settings-card-hint {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    font-size: 12px;
+    line-height: 19px;
+    color: var(--color-text-muted);
+  }
+  .settings-card-hint svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; color: var(--color-primary); }
 
   @media (max-width: 900px) {
     .orders-table-head .order-cell-invoice,
@@ -641,13 +653,13 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15l-3-1.5-3 1.5-3-1.5-3 1.5V3Z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
       </div>
       <div class="invoice-banner-text">
-        <div class="invoice-banner-title">Sie haben eine offene Rechnung</div>
-        <div class="invoice-banner-sub">Offener Betrag: 2.481,72 &euro;</div>
+        <div class="invoice-banner-title">Sie haben offene Rechnungen</div>
+        <div class="invoice-banner-sub">Bitte pr&uuml;fen und begleichen</div>
       </div>
-      <button class="btn btn-secondary invoice-banner-btn">
-        Herunterladen
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="rgb(12, 52, 145)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+      <a href="profile.html" class="btn btn-secondary invoice-banner-btn">
+        Zu den Rechnungen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="rgb(12, 52, 145)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
 
     <h2 class="section-title">Letzte Bestellungen</h2>
@@ -890,6 +902,10 @@
         <div class="settings-card-title">Profil</div>
         <div class="settings-card-desc-row">
           <span class="settings-card-desc">Name, Adresse und Kontaktdaten verwalten</span>
+        </div>
+        <div class="settings-card-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9.25"/><path d="M12 11v5.5" stroke-linecap="round"/><circle cx="12" cy="8" r="0.9" fill="currentColor" stroke="none"/></svg>
+          <span>Sie k&ouml;nnen eine separate E-Mail-Adresse f&uuml;r Rechnungen hinterlegen</span>
         </div>
       </a>
 
