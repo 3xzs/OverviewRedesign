@@ -21,7 +21,11 @@
     --color-neutral-btn: #F4F5F7;
     --color-neutral-btn-hover: #E4E6EB;
     --color-text-default: #323945;
-    --color-text-muted: #6B7280;
+    --color-text-muted: #56637A;
+    --color-text-subtle: #AFB6C5;
+    --color-navy-800: #09276D;
+    --color-navy-900: #001F42;
+    --color-sapphire-900: #0C3491;
     --font-family: 'Inter', sans-serif;
     --radius-card: 8px;
     --radius-btn: 8px;
@@ -60,7 +64,7 @@
 
   /* Main header */
   .main-header {
-    background: #0B1E4B;
+    background: var(--color-navy-900);
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -114,7 +118,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #14295E;
+    background: var(--color-navy-800);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,11 +137,11 @@
     letter-spacing: 0.5px;
   }
   .user-name { font-size: 14px; font-weight: 600; line-height: 18px; }
-  .user-sub { font-size: 12px; color: #A8B3D1; line-height: 16px; }
+  .user-sub { font-size: 12px; color: var(--color-text-subtle); line-height: 16px; }
 
   /* Search bar */
   .search-bar {
-    background: #14295E;
+    background: var(--color-navy-800);
     padding: 16px 32px;
     display: flex;
     gap: 16px;
@@ -156,10 +160,10 @@
     font-family: var(--font-family);
     font-size: 14px;
     color: #ffffff;
-    background: #14295E;
+    background: var(--color-navy-800);
     outline: none;
   }
-  .search-input::placeholder { color: #A8B3D1; }
+  .search-input::placeholder { color: var(--color-text-subtle); }
   .btn {
     height: 48px;
     padding: 0 16px;
@@ -178,7 +182,7 @@
   .btn-primary:hover { background: var(--color-primary-hover); }
   .btn-neutral { background: var(--color-neutral-btn); color: var(--color-text-default); }
   .btn-neutral:hover { background: var(--color-neutral-btn-hover); }
-  .btn-secondary { background: var(--color-secondary); color: rgb(12, 52, 145); }
+  .btn-secondary { background: var(--color-secondary); color: var(--color-sapphire-900); }
   .btn-secondary:hover { background: var(--color-secondary-hover); }
 
   /* Page container */
@@ -233,8 +237,8 @@
   .orders-table-head,
   .order-row {
     display: grid;
-    grid-template-columns: minmax(240px, 2.3fr) minmax(140px, 1.3fr) minmax(150px, 1fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
-    gap: 16px;
+    grid-template-columns: minmax(260px, 2.4fr) minmax(130px, 1fr) minmax(100px, 0.6fr) minmax(110px, 0.6fr) minmax(130px, 1fr);
+    gap: 24px;
     align-items: center;
     padding: 0 24px;
   }
@@ -256,30 +260,60 @@
   .order-row:last-child { border-bottom: none; }
   .order-row:hover { background: var(--color-neutral-btn); }
 
-  .order-title {
+  .order-number {
     display: block;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+  .order-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     font-size: 16px;
     line-height: 25px;
     font-weight: 600;
     color: var(--color-primary);
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .order-title:hover { color: var(--color-primary-hover); }
-  .order-track {
-    display: inline-flex;
+  .order-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .order-date {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+  .order-meta-right {
+    display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 4px;
-    font-size: 12px;
-    line-height: 19px;
-    font-weight: 600;
-    color: var(--color-text-muted);
+    flex-shrink: 0;
   }
   .order-sum {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
     color: var(--color-text-muted);
-    font-weight: 600;
+    white-space: nowrap;
+  }
+  .payment-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    white-space: nowrap;
+    color: var(--color-text-muted);
   }
 
   .status-badge {
@@ -292,10 +326,10 @@
     font-weight: 600;
     line-height: 19px;
   }
-  .status-open { background: var(--color-secondary); color: #323945; }
-  .status-cancelled { background: #F4F5F7; color: #6B7280; }
-  .status-shipped { background: #0B1E4B; color: #ffffff; }
-  .status-delivered { background: #E1F5EE; color: #085041; }
+  .status-open { background: var(--color-secondary); color: var(--color-text-default); }
+  .status-cancelled { background: var(--color-neutral-btn); color: var(--color-text-muted); }
+  .status-shipped { background: var(--color-navy-900); color: #ffffff; }
+  .status-delivered { background: #E0F4EE; color: #1A5A4B; }
 
 
   .order-thumbs {
@@ -340,9 +374,24 @@
     gap: 4px;
     cursor: pointer;
     white-space: nowrap;
+    font-size: 14px;
+    line-height: 22px;
   }
   .order-detail-value.link:hover { color: var(--color-primary-hover); }
+  .order-detail-muted {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
   .order-bottom-row { display: contents; }
+  .order-cell-status,
+  .order-cell-track,
+  .order-cell-rechnung {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
   /* Invoice due banner */
   .invoice-banner {
@@ -412,8 +461,8 @@
   }
   .shipment-line {
     display: grid;
-    grid-template-columns: minmax(240px, 2.3fr) minmax(140px, 1.3fr) minmax(150px, 1fr) minmax(120px, 0.9fr) minmax(110px, 0.8fr);
-    gap: 16px;
+    grid-template-columns: minmax(260px, 2.4fr) minmax(130px, 1fr) minmax(100px, 0.6fr) minmax(110px, 0.6fr) minmax(130px, 1fr);
+    gap: 24px;
     align-items: center;
     padding: 8px 24px;
   }
@@ -429,8 +478,8 @@
     height: 100%;
   }
   .shipment-label {
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 25px;
     font-weight: 600;
     color: var(--color-text-muted);
     margin-right: 32px;
@@ -441,9 +490,9 @@
     flex-shrink: 0;
   }
   .shipment-thumbs .thumb {
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
     background: #F4F5F7;
     border: 1px solid #ECEDF0;
     display: flex;
@@ -475,6 +524,107 @@
   }
   .shipment-tracking:hover { color: var(--color-primary-hover); }
   .shipment-top-row, .shipment-bottom-row { display: contents; }
+  .shipment-status,
+  .shipment-track,
+  .shipment-rechnung {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Alternative order card style */
+  .orders-alt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .order-alt-card {
+    width: 100%;
+    background: var(--color-bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+  }
+  .order-alt-card:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+  .order-alt-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .order-alt-title {
+    display: block;
+    color: var(--color-primary);
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 600;
+  }
+  .order-alt-title:hover { color: var(--color-primary-hover); }
+  .order-alt-badge { flex-shrink: 0; }
+  .order-alt-meta {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+  .order-alt-thumb {
+    margin-top: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    background: #F4F5F7;
+    border: 1px solid #ECEDF0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 6px;
+  }
+  .order-alt-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .order-alt-links {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  .order-alt-top .order-alt-links,
+  .order-alt-shipment-top .order-alt-links {
+    margin-top: 0;
+  }
+  .order-alt-shipment-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .order-alt-products {
+    margin-top: 16px;
+  }
+  .order-alt-shipment {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #ECEDF0;
+  }
+  .order-alt-shipment-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .order-alt-shipment .shipment-thumbs {
+    margin-top: 8px;
+  }
 
   /* Settings cards (3-column grid) */
   .settings-cards-grid {
@@ -519,9 +669,9 @@
   .settings-card-hint {
     display: flex;
     align-items: flex-start;
-    gap: 6px;
+    gap: 8px;
     margin-top: 8px;
-    padding-top: 12px;
+    padding-top: 16px;
     border-top: 1px solid rgba(0,0,0,0.06);
     font-size: 12px;
     line-height: 19px;
@@ -530,8 +680,6 @@
   .settings-card-hint svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; color: var(--color-primary); }
 
   @media (max-width: 900px) {
-    .orders-table-head .order-cell-invoice,
-    .order-cell-invoice { display: none; }
     .settings-cards-grid { grid-template-columns: repeat(2, 1fr); }
     .orders-table-head { display: none; }
     .order-row {
@@ -646,7 +794,7 @@
 
     <nav class="breadcrumb">
       <a href="#">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <span class="separator">/</span>
       <span class="current">Mein Konto</span>
@@ -664,7 +812,7 @@
       </div>
       <a href="profile.html" class="btn btn-secondary invoice-banner-btn">
         Zu den Rechnungen
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="rgb(12, 52, 145)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
 
@@ -674,16 +822,23 @@
       <div class="orders-table-head">
         <div>Order</div>
         <div>Produkte</div>
-        <div>Sendung</div>
-        <div>Rechnung</div>
         <div>Status</div>
+        <div>Versand</div>
+        <div>Rechnung</div>
       </div>
 
       <!-- Order 1 -->
       <a class="order-row" href="order-detail.html">
         <div class="order-cell-order">
-          <span class="order-title">Order #2015382248: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</span>
-          <span class="order-track">03.07.2026 &middot; <span class="order-sum">2.481,72 &euro;</span> &middot; Bezahlt</span>
+          <span class="order-number">#2015382248</span>
+          <span class="order-title">Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</span>
+          <div class="order-meta">
+            <span class="order-date">03.07.2026</span>
+            <span class="order-meta-right">
+              <span class="order-sum">2.481,72 &euro;</span>
+              <span class="payment-badge">Bezahlt</span>
+            </span>
+          </div>
         </div>
         <div class="order-cell-products">
           <div class="order-thumbs">
@@ -693,16 +848,18 @@
           </div>
         </div>
         <div class="order-bottom-row">
+          <div class="order-cell-status">
+            <span class="status-badge status-shipped">Versendet</span>
+          </div>
           <div class="order-cell-track">
             <span class="order-detail-value link">Verfolgen
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
-          <div class="order-cell-invoice">
-            <span class="order-detail-value">&ndash;</span>
-          </div>
-          <div class="order-cell-status">
-            <span class="status-badge status-shipped">Versendet</span>
+          <div class="order-cell-rechnung">
+            <span class="order-detail-value link">Herunterladen
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </div>
         </div>
       </a>
@@ -710,25 +867,38 @@
       <!-- Order 2 -->
       <a class="order-row" href="order-detail.html">
         <div class="order-cell-order">
-          <span class="order-title">Order #2015386661: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</span>
-          <span class="order-track">28.06.2026 &middot; <span class="order-sum">2.864,12 &euro;</span> &middot; Erstattet</span>
+          <span class="order-title">#2015386661: Yageo Widerstand 220 &Omega; 0805 SMD 1% und 1 weiterer Artikel</span>
+          <div class="order-meta">
+            <span class="order-date">28.06.2026</span>
+            <span class="order-meta-right">
+              <span class="order-sum">2.864,12 &euro;</span>
+              <span class="payment-badge">Bezahlt</span>
+            </span>
+          </div>
         </div>
         <div class="order-cell-products">
           <div class="order-thumbs">
             <div class="thumb" title="Yageo Widerstand">
               <img src="images/yageo.png" alt="Yageo Widerstand">
             </div>
+            <div class="thumb" title="Yageo Keramikkondensator">
+              <img src="images/yageo.png" alt="Yageo Keramikkondensator">
+            </div>
           </div>
         </div>
         <div class="order-bottom-row">
-          <div class="order-cell-track">
-            <span class="order-detail-value">&ndash;</span>
-          </div>
-          <div class="order-cell-invoice">
-            <span class="order-detail-value">&ndash;</span>
-          </div>
           <div class="order-cell-status">
-            <span class="status-badge status-cancelled">Storniert</span>
+            <span class="status-badge status-delivered">Zugestellt</span>
+          </div>
+          <div class="order-cell-track">
+            <span class="order-detail-value link">Verfolgen
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div class="order-cell-rechnung">
+            <span class="order-detail-value link">Herunterladen
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </div>
         </div>
       </a>
@@ -737,15 +907,21 @@
       <div class="order-row-group">
         <a class="order-row order-row-header" href="order-detail.html">
           <div class="order-cell-order">
-            <span class="order-title">Order #2015381330: Apple AirPods 4 und 3 weitere Artikel</span>
-            <span class="order-track">19.06.2026 &middot; <span class="order-sum">4.678,02 &euro;</span> &middot; Bezahlt</span>
+            <span class="order-title">#2015381330: Apple AirPods 4 und 5 weitere Artikel</span>
+            <div class="order-meta">
+              <span class="order-date">19.06.2026</span>
+              <span class="order-meta-right">
+                <span class="order-sum">4.678,02 &euro;</span>
+                <span class="payment-badge">Bezahlt</span>
+              </span>
+            </div>
           </div>
           <div class="order-cell-products">
-            <span class="order-detail-value">4 Artikel</span>
+            <span class="order-detail-value">6 Artikel</span>
           </div>
-          <div class="order-cell-track"></div>
-          <div class="order-cell-invoice"></div>
           <div class="order-cell-status"></div>
+          <div class="order-cell-track"></div>
+          <div class="order-cell-rechnung"></div>
         </a>
 
         <div class="shipment-list">
@@ -761,20 +937,25 @@
                 <div class="thumb" title="Samsung Galaxy XCover">
                   <img src="images/samsung-xcover.png" alt="Samsung Galaxy XCover">
                 </div>
+                <div class="thumb thumb-more" title="2 weitere Produkte">
+                  <span>+2</span>
+                </div>
               </div>
             </div>
             <div class="shipment-bottom-row">
+              <div class="shipment-status">
+                <span class="status-badge status-shipped">Versendet</span>
+              </div>
               <div class="shipment-track">
                 <a class="shipment-tracking" href="#">Verfolgen
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
               </div>
-              <div class="shipment-download">
+              <div class="shipment-rechnung">
                 <span class="order-detail-value link">Herunterladen
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </span>
               </div>
-              <span class="status-badge status-shipped">Versendet</span>
             </div>
           </div>
 
@@ -787,27 +968,136 @@
                 <div class="thumb" title="Bambu Lab 3D-Drucker">
                   <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
                 </div>
-                <div class="thumb thumb-more" title="1 weiteres Produkt">
-                  <span>+1</span>
+                <div class="thumb" title="Nintendo Switch 2">
+                  <img src="images/switch2.png" alt="Nintendo Switch 2">
                 </div>
               </div>
             </div>
             <div class="shipment-bottom-row">
+              <div class="shipment-status">
+                <span class="status-badge status-delivered">Zugestellt</span>
+              </div>
               <div class="shipment-track">
                 <a class="shipment-tracking" href="#">Verfolgen
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
               </div>
-              <div class="shipment-download">
+              <div class="shipment-rechnung">
                 <span class="order-detail-value link">Herunterladen
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </span>
               </div>
-              <span class="status-badge status-delivered">Zugestellt</span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <h2 class="section-title">Letzte Bestellungen (Alternative)</h2>
+
+    <div class="orders-alt-list">
+      <a class="order-alt-card" href="order-detail.html">
+        <div class="order-alt-top">
+          <span class="order-alt-title">#2015382248: Apple iPhone 17 Pro Silber 256 GB 16 cm (6.3 Zoll)</span>
+          <div class="order-alt-links">
+            <span class="order-detail-value link">Sendung verfolgen
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="order-detail-value link">Rechnung herunterladen
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="order-alt-meta">
+          <span class="status-badge status-shipped">Versendet</span>
+          <span>03.07.2026 &middot; 2.481,72 &euro; &middot; Bezahlt</span>
+        </div>
+        <div class="order-alt-thumb">
+          <img src="images/switch2.png" alt="Nintendo Switch 2">
+        </div>
+      </a>
+
+      <a class="order-alt-card" href="order-detail.html">
+        <div class="order-alt-top">
+          <span class="order-alt-title">#2015386661: Yageo Widerstand 220 &Omega; 0805 SMD 1% und 1 weiterer Artikel</span>
+          <div class="order-alt-links">
+            <span class="order-detail-value link">Sendung verfolgen
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="order-detail-value link">Rechnung herunterladen
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="order-alt-meta">
+          <span class="status-badge status-delivered">Zugestellt</span>
+          <span>28.06.2026 &middot; 2.864,12 &euro; &middot; Bezahlt</span>
+        </div>
+        <div class="order-alt-thumb">
+          <img src="images/yageo.png" alt="Yageo Widerstand">
+        </div>
+      </a>
+
+      <a class="order-alt-card" href="order-detail.html">
+        <div class="order-alt-top">
+          <span class="order-alt-title">#2015381330: Apple AirPods 4 und 5 weitere Artikel</span>
+        </div>
+        <div class="order-alt-meta">19.06.2026 &middot; 4.678,02 &euro; &middot; Bezahlt</div>
+        <div class="order-alt-products">6 Artikel</div>
+
+        <div class="order-alt-shipment">
+          <div class="order-alt-shipment-top">
+            <div class="order-alt-shipment-label">
+              <span class="shipment-label">Sendung 1</span>
+              <span class="status-badge status-shipped">Versendet</span>
+            </div>
+            <div class="order-alt-links">
+              <span class="order-detail-value link">Sendung verfolgen
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="order-detail-value link">Rechnung herunterladen
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="shipment-thumbs">
+            <div class="thumb" title="Apple iPhone">
+              <img src="images/iphone.png" alt="Apple iPhone">
+            </div>
+            <div class="thumb" title="Samsung Galaxy XCover">
+              <img src="images/samsung-xcover.png" alt="Samsung Galaxy XCover">
+            </div>
+            <div class="thumb thumb-more" title="2 weitere Produkte">
+              <span>+2</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-alt-shipment">
+          <div class="order-alt-shipment-top">
+            <div class="order-alt-shipment-label">
+              <span class="shipment-label">Sendung 2</span>
+              <span class="status-badge status-delivered">Zugestellt</span>
+            </div>
+            <div class="order-alt-links">
+              <span class="order-detail-value link">Sendung verfolgen
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="order-detail-value link">Rechnung herunterladen
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="shipment-thumbs">
+            <div class="thumb" title="Bambu Lab 3D-Drucker">
+              <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
+            </div>
+            <div class="thumb" title="Nintendo Switch 2">
+              <img src="images/switch2.png" alt="Nintendo Switch 2">
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
 
     <h2 class="section-title">Bestellungen</h2>
