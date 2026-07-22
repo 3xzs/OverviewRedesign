@@ -176,6 +176,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 6px;
     white-space: nowrap;
   }
   .btn-primary { background: var(--color-primary); color: #fff; }
@@ -184,6 +185,15 @@
   .btn-neutral:hover { background: var(--color-neutral-btn-hover); }
   .btn-secondary { background: var(--color-secondary); color: var(--color-sapphire-900); }
   .btn-secondary:hover { background: var(--color-secondary-hover); }
+  .btn-outline {
+    background: var(--color-bg-card);
+    color: var(--color-text-default);
+    border: 1px solid #ECEDF0;
+    font-weight: 600;
+  }
+  .btn-outline:hover { background: var(--color-neutral-btn); }
+  .btn-outline svg { color: #000000; }
+  .btn-sm { height: 40px; padding: 0 16px; font-size: 14px; }
 
   /* Page container */
   .container {
@@ -274,7 +284,6 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-top: 4px;
   }
   .order-card-meta-left {
     font-size: 14px;
@@ -297,14 +306,14 @@
     white-space: nowrap;
   }
   .order-card-sum {
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 25px;
     font-weight: 600;
     color: var(--color-text-default);
   }
   .order-card-paid {
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 25px;
     font-weight: 400;
     color: var(--color-text-muted);
   }
@@ -329,8 +338,8 @@
   .order-card-actions-right {
     display: flex;
     align-items: center;
-    gap: 16px;
-    flex-shrink: 0;
+    gap: 8px;
+    flex-wrap: wrap;
   }
   .order-card-shipment-label {
     font-size: 14px;
@@ -384,8 +393,8 @@
     flex-shrink: 0;
   }
   .order-card-thumbs .thumb {
-    width: 36px;
-    height: 36px;
+    width: 64px;
+    height: 64px;
     border-radius: 8px;
     background: #F4F5F7;
     border: 1px solid #ECEDF0;
@@ -414,7 +423,7 @@
     font-weight: 600;
   }
   .order-detail-value.link {
-    color: var(--color-primary);
+    color: var(--color-text-muted);
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -423,7 +432,7 @@
     font-size: 14px;
     line-height: 22px;
   }
-  .order-detail-value.link:hover { color: var(--color-primary-hover); }
+  .order-detail-value.link:hover { color: var(--color-text-default); }
   .order-detail-muted {
     font-size: 14px;
     line-height: 22px;
@@ -654,7 +663,6 @@
         <div class="order-card-divider"></div>
         <div class="order-card-actions">
           <div class="order-card-actions-left">
-            <span class="status-badge status-shipped">Versendet</span>
             <div class="order-card-thumbs">
               <div class="thumb" title="Nintendo Switch 2">
                 <img src="images/switch2.png" alt="Nintendo Switch 2">
@@ -662,11 +670,12 @@
             </div>
           </div>
           <div class="order-card-actions-right">
-            <span class="order-detail-value link">Sendung Verfolgen
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="status-badge status-shipped">Versendet</span>
+            <span class="btn btn-outline btn-sm">Sendung Verfolgen
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
             </span>
-            <span class="order-detail-value link">Rechnung herunterladen
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="btn btn-outline btn-sm">Rechnung herunterladen
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
             </span>
           </div>
         </div>
@@ -688,7 +697,6 @@
         <div class="order-card-divider"></div>
         <div class="order-card-actions">
           <div class="order-card-actions-left">
-            <span class="status-badge status-delivered">Zugestellt</span>
             <div class="order-card-thumbs">
               <div class="thumb" title="Yageo Widerstand">
                 <img src="images/yageo.png" alt="Yageo Widerstand">
@@ -699,11 +707,12 @@
             </div>
           </div>
           <div class="order-card-actions-right">
-            <span class="order-detail-value link">Sendung Verfolgen
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="status-badge status-delivered">Zugestellt</span>
+            <span class="btn btn-outline btn-sm">Sendung Verfolgen
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
             </span>
-            <span class="order-detail-value link">Rechnung herunterladen
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="btn btn-outline btn-sm">Rechnung herunterladen
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
             </span>
           </div>
         </div>
@@ -720,7 +729,7 @@
             </span>
           </div>
           <div class="order-card-meta">
-            <span class="order-card-meta-left">#2015381330 &middot; 6 Artikel</span>
+            <span class="order-card-meta-left">#2015381330</span>
             <span class="order-card-date">19.06.2026</span>
           </div>
         </a>
@@ -728,7 +737,6 @@
         <div class="order-card-shipments">
           <div class="order-card-actions">
             <div class="order-card-actions-left">
-              <span class="status-badge status-shipped">Versendet</span>
               <span class="order-card-shipment-label">Sendung 1</span>
               <div class="order-card-thumbs">
                 <div class="thumb" title="Apple iPhone">
@@ -737,17 +745,21 @@
                 <div class="thumb" title="Samsung Galaxy XCover">
                   <img src="images/samsung-xcover.png" alt="Samsung Galaxy XCover">
                 </div>
-                <div class="thumb thumb-more" title="2 weitere Produkte">
-                  <span>+2</span>
+                <div class="thumb" title="Yageo Widerstand">
+                  <img src="images/yageo.png" alt="Yageo Widerstand">
+                </div>
+                <div class="thumb" title="Bambu Lab 3D-Drucker">
+                  <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
                 </div>
               </div>
             </div>
             <div class="order-card-actions-right">
-              <span class="order-detail-value link">Sendung Verfolgen
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="status-badge status-shipped">Versendet</span>
+              <span class="btn btn-outline btn-sm">Sendung Verfolgen
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
               </span>
-              <span class="order-detail-value link">Rechnung herunterladen
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="btn btn-outline btn-sm">Rechnung herunterladen
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
               </span>
             </div>
           </div>
@@ -756,7 +768,6 @@
 
           <div class="order-card-actions">
             <div class="order-card-actions-left">
-              <span class="status-badge status-delivered">Zugestellt</span>
               <span class="order-card-shipment-label">Sendung 2</span>
               <div class="order-card-thumbs">
                 <div class="thumb" title="Bambu Lab 3D-Drucker">
@@ -768,11 +779,12 @@
               </div>
             </div>
             <div class="order-card-actions-right">
-              <span class="order-detail-value link">Sendung Verfolgen
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="status-badge status-delivered">Zugestellt</span>
+              <span class="btn btn-outline btn-sm">Sendung Verfolgen
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
               </span>
-              <span class="order-detail-value link">Rechnung herunterladen
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="btn btn-outline btn-sm">Rechnung herunterladen
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
               </span>
             </div>
           </div>
@@ -799,7 +811,6 @@
         <div class="order-card-divider"></div>
         <div class="order-card-actions">
           <div class="order-card-actions-left">
-            <span class="status-badge status-shipped">Versendet</span>
             <div class="order-card-thumbs">
               <div class="thumb" title="Nintendo Switch 2">
                 <img src="images/switch2.png" alt="Nintendo Switch 2">
@@ -807,11 +818,12 @@
             </div>
           </div>
           <div class="order-card-actions-right">
-            <span class="order-detail-value link">Sendung Verfolgen
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="status-badge status-shipped">Versendet</span>
+            <span class="btn btn-outline btn-sm">Sendung Verfolgen
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
             </span>
-            <span class="order-detail-value link">Rechnung herunterladen
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="btn btn-outline btn-sm">Rechnung herunterladen
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
             </span>
           </div>
         </div>
@@ -833,7 +845,6 @@
         <div class="order-card-divider"></div>
         <div class="order-card-actions">
           <div class="order-card-actions-left">
-            <span class="status-badge status-delivered">Zugestellt</span>
             <div class="order-card-thumbs">
               <div class="thumb" title="Yageo Widerstand">
                 <img src="images/yageo.png" alt="Yageo Widerstand">
@@ -844,11 +855,12 @@
             </div>
           </div>
           <div class="order-card-actions-right">
-            <span class="order-detail-value link">Sendung Verfolgen
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="status-badge status-delivered">Zugestellt</span>
+            <span class="btn btn-outline btn-sm">Sendung Verfolgen
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
             </span>
-            <span class="order-detail-value link">Rechnung herunterladen
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="btn btn-outline btn-sm">Rechnung herunterladen
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
             </span>
           </div>
         </div>
@@ -865,7 +877,7 @@
             </span>
           </div>
           <div class="order-card-meta">
-            <span class="order-card-meta-left">#2015381330 &middot; 6 Artikel</span>
+            <span class="order-card-meta-left">#2015381330</span>
             <span class="order-card-date">19.06.2026</span>
           </div>
         </a>
@@ -873,7 +885,6 @@
         <div class="order-card-shipments">
           <div class="order-card-actions">
             <div class="order-card-actions-left">
-              <span class="status-badge status-shipped">Versendet</span>
               <span class="order-card-shipment-label">Sendung 1</span>
               <div class="order-card-thumbs">
                 <div class="thumb" title="Apple iPhone">
@@ -882,17 +893,21 @@
                 <div class="thumb" title="Samsung Galaxy XCover">
                   <img src="images/samsung-xcover.png" alt="Samsung Galaxy XCover">
                 </div>
-                <div class="thumb thumb-more" title="2 weitere Produkte">
-                  <span>+2</span>
+                <div class="thumb" title="Yageo Widerstand">
+                  <img src="images/yageo.png" alt="Yageo Widerstand">
+                </div>
+                <div class="thumb" title="Bambu Lab 3D-Drucker">
+                  <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
                 </div>
               </div>
             </div>
             <div class="order-card-actions-right">
-              <span class="order-detail-value link">Sendung Verfolgen
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="status-badge status-shipped">Versendet</span>
+              <span class="btn btn-outline btn-sm">Sendung Verfolgen
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
               </span>
-              <span class="order-detail-value link">Rechnung herunterladen
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="btn btn-outline btn-sm">Rechnung herunterladen
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
               </span>
             </div>
           </div>
@@ -901,7 +916,6 @@
 
           <div class="order-card-actions">
             <div class="order-card-actions-left">
-              <span class="status-badge status-delivered">Zugestellt</span>
               <span class="order-card-shipment-label">Sendung 2</span>
               <div class="order-card-thumbs">
                 <div class="thumb" title="Bambu Lab 3D-Drucker">
@@ -913,11 +927,12 @@
               </div>
             </div>
             <div class="order-card-actions-right">
-              <span class="order-detail-value link">Sendung Verfolgen
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="status-badge status-delivered">Zugestellt</span>
+              <span class="btn btn-outline btn-sm">Sendung Verfolgen
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
               </span>
-              <span class="order-detail-value link">Rechnung herunterladen
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#376EEF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="btn btn-outline btn-sm">Rechnung herunterladen
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
               </span>
             </div>
           </div>
