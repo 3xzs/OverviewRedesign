@@ -352,25 +352,6 @@
     flex-direction: column;
   }
 
-  /* Combined single-card (table) variant of the order list */
-  .orders-table {
-    background: var(--color-bg-card);
-    border-radius: var(--radius-card);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-    overflow: hidden;
-    margin-bottom: 32px;
-  }
-  .order-table-row {
-    display: block;
-    padding: 20px 24px;
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
-    border-bottom: 1px solid #ECEDF0;
-  }
-  .order-table-row:last-child { border-bottom: none; }
-  .order-table-row:hover { background: var(--color-neutral-btn); }
-
   .status-badge {
     display: inline-flex;
     align-items: center;
@@ -547,7 +528,6 @@
   @media (max-width: 900px) {
     .settings-cards-grid { grid-template-columns: repeat(2, 1fr); }
     .order-card { padding: 16px; }
-    .order-table-row { padding: 16px; }
     .order-card-top {
       flex-direction: column;
       align-items: flex-start;
@@ -720,154 +700,6 @@
 
       <!-- Order 3 (multiple shipments) -->
       <div class="order-card">
-        <a class="order-card-header-link" href="order-detail.html">
-          <div class="order-card-top">
-            <span class="order-card-title">Apple AirPods 4 und 5 weitere Artikel</span>
-            <span class="order-card-meta-right">
-              <span class="order-card-sum">4.678,02 &euro;</span>
-              <span class="order-card-paid">Bezahlt</span>
-            </span>
-          </div>
-          <div class="order-card-meta">
-            <span class="order-card-meta-left">#2015381330</span>
-            <span class="order-card-date">19.06.2026</span>
-          </div>
-        </a>
-        <div class="order-card-divider"></div>
-        <div class="order-card-shipments">
-          <div class="order-card-actions">
-            <div class="order-card-actions-left">
-              <span class="order-card-shipment-label">Sendung 1</span>
-              <div class="order-card-thumbs">
-                <div class="thumb" title="Apple iPhone">
-                  <img src="images/iphone.png" alt="Apple iPhone">
-                </div>
-                <div class="thumb" title="Samsung Galaxy XCover">
-                  <img src="images/samsung-xcover.png" alt="Samsung Galaxy XCover">
-                </div>
-                <div class="thumb" title="Yageo Widerstand">
-                  <img src="images/yageo.png" alt="Yageo Widerstand">
-                </div>
-                <div class="thumb" title="Bambu Lab 3D-Drucker">
-                  <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
-                </div>
-              </div>
-            </div>
-            <div class="order-card-actions-right">
-              <span class="status-badge status-shipped">Versendet</span>
-              <span class="btn btn-outline btn-sm">Sendung Verfolgen
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
-              </span>
-              <span class="btn btn-outline btn-sm">Rechnung herunterladen
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
-              </span>
-            </div>
-          </div>
-
-          <div class="order-card-divider"></div>
-
-          <div class="order-card-actions">
-            <div class="order-card-actions-left">
-              <span class="order-card-shipment-label">Sendung 2</span>
-              <div class="order-card-thumbs">
-                <div class="thumb" title="Bambu Lab 3D-Drucker">
-                  <img src="images/bambulab.png" alt="Bambu Lab 3D-Drucker">
-                </div>
-                <div class="thumb" title="Nintendo Switch 2">
-                  <img src="images/switch2.png" alt="Nintendo Switch 2">
-                </div>
-              </div>
-            </div>
-            <div class="order-card-actions-right">
-              <span class="status-badge status-delivered">Zugestellt</span>
-              <span class="btn btn-outline btn-sm">Sendung Verfolgen
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
-              </span>
-              <span class="btn btn-outline btn-sm">Rechnung herunterladen
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <h2 class="section-title">Letzte Bestellungen (Tabelle)</h2>
-
-    <div class="orders-table">
-      <!-- Order 1 -->
-      <a class="order-table-row" href="order-detail.html">
-        <div class="order-card-top">
-          <span class="order-card-title">Nintendo Switch 2</span>
-          <span class="order-card-meta-right">
-            <span class="order-card-sum">2.481,72 &euro;</span>
-            <span class="order-card-paid">Bezahlt</span>
-          </span>
-        </div>
-        <div class="order-card-meta">
-          <span class="order-card-meta-left">#2015382248</span>
-          <span class="order-card-date">03.07.2026</span>
-        </div>
-        <div class="order-card-divider"></div>
-        <div class="order-card-actions">
-          <div class="order-card-actions-left">
-            <div class="order-card-thumbs">
-              <div class="thumb" title="Nintendo Switch 2">
-                <img src="images/switch2.png" alt="Nintendo Switch 2">
-              </div>
-            </div>
-          </div>
-          <div class="order-card-actions-right">
-            <span class="status-badge status-shipped">Versendet</span>
-            <span class="btn btn-outline btn-sm">Sendung Verfolgen
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
-            </span>
-            <span class="btn btn-outline btn-sm">Rechnung herunterladen
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Order 2 -->
-      <a class="order-table-row" href="order-detail.html">
-        <div class="order-card-top">
-          <span class="order-card-title">Yageo Widerstand 220 &Omega; 0805 SMD 1% und 1 weiterer Artikel</span>
-          <span class="order-card-meta-right">
-            <span class="order-card-sum">2.864,12 &euro;</span>
-            <span class="order-card-paid">Bezahlt</span>
-          </span>
-        </div>
-        <div class="order-card-meta">
-          <span class="order-card-meta-left">#2015386661</span>
-          <span class="order-card-date">28.06.2026</span>
-        </div>
-        <div class="order-card-divider"></div>
-        <div class="order-card-actions">
-          <div class="order-card-actions-left">
-            <div class="order-card-thumbs">
-              <div class="thumb" title="Yageo Widerstand">
-                <img src="images/yageo.png" alt="Yageo Widerstand">
-              </div>
-              <div class="thumb" title="Yageo Keramikkondensator">
-                <img src="images/yageo.png" alt="Yageo Keramikkondensator">
-              </div>
-            </div>
-          </div>
-          <div class="order-card-actions-right">
-            <span class="status-badge status-delivered">Zugestellt</span>
-            <span class="btn btn-outline btn-sm">Sendung Verfolgen
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd"/></svg>
-            </span>
-            <span class="btn btn-outline btn-sm">Rechnung herunterladen
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v6.638l1.96-2.158a.75.75 0 1 1 1.08 1.04l-3.25 3.5a.75.75 0 0 1-1.08 0l-3.25-3.5a.75.75 0 1 1 1.08-1.04l1.96 2.158V3.75A.75.75 0 0 1 10 3ZM3.75 12a.75.75 0 0 1 .75.75v2.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-2.5a.75.75 0 0 1 1.5 0v2.5A2.25 2.25 0 0 1 14.75 17H5.25A2.25 2.25 0 0 1 3 14.75v-2.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd"/></svg>
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Order 3 (multiple shipments) -->
-      <div class="order-table-row">
         <a class="order-card-header-link" href="order-detail.html">
           <div class="order-card-top">
             <span class="order-card-title">Apple AirPods 4 und 5 weitere Artikel</span>
