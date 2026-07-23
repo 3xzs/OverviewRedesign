@@ -266,6 +266,13 @@
     justify-content: space-between;
     gap: 16px;
   }
+  .order-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+  }
   .order-card-title {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -276,8 +283,6 @@
     line-height: 25px;
     font-weight: 600;
     color: var(--color-primary);
-    flex: 1;
-    min-width: 0;
   }
   .order-card-title:hover { color: var(--color-primary-hover); }
   .order-card-meta {
@@ -296,12 +301,12 @@
     font-weight: 400;
     color: var(--color-text-muted);
     white-space: nowrap;
-    margin-left: auto;
   }
   .order-card-meta-right {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
     flex-shrink: 0;
     white-space: nowrap;
   }
@@ -312,8 +317,8 @@
     color: var(--color-text-default);
   }
   .order-card-paid {
-    font-size: 16px;
-    line-height: 25px;
+    font-size: 14px;
+    line-height: 22px;
     font-weight: 400;
     color: var(--color-text-muted);
   }
@@ -538,7 +543,6 @@
       align-items: flex-start;
       gap: 4px;
     }
-    .order-card-date { margin-left: 0; }
   }
   @media (max-width: 640px) {
     .utility-bar { display: none; }
@@ -630,15 +634,17 @@
       <!-- Order 1 -->
       <a class="order-card" href="order-detail.html">
         <div class="order-card-top">
-          <span class="order-card-title">Nintendo Switch 2</span>
+          <div class="order-card-info">
+            <span class="order-card-title">Nintendo Switch 2</span>
+            <div class="order-card-meta">
+              <span class="order-card-meta-left">#2015382248</span>
+              <span class="order-card-date">03.07.2026</span>
+            </div>
+          </div>
           <span class="order-card-meta-right">
-            <span class="order-card-sum">2.481,72 &euro;</span>
+            <span class="order-card-sum">469,99 &euro;</span>
             <span class="order-card-paid">Bezahlt</span>
           </span>
-        </div>
-        <div class="order-card-meta">
-          <span class="order-card-meta-left">#2015382248</span>
-          <span class="order-card-date">03.07.2026</span>
         </div>
         <div class="order-card-divider"></div>
         <div class="order-card-actions">
@@ -664,15 +670,17 @@
       <!-- Order 2 -->
       <a class="order-card" href="order-detail.html">
         <div class="order-card-top">
-          <span class="order-card-title">Yageo Widerstand 220 &Omega; 0805 SMD 1% und 1 weiterer Artikel</span>
+          <div class="order-card-info">
+            <span class="order-card-title">Yageo Widerstand 220 &Omega; 0805 SMD 1% und 1 weiterer Artikel</span>
+            <div class="order-card-meta">
+              <span class="order-card-meta-left">#2015386661</span>
+              <span class="order-card-date">28.06.2026</span>
+            </div>
+          </div>
           <span class="order-card-meta-right">
-            <span class="order-card-sum">2.864,12 &euro;</span>
+            <span class="order-card-sum">166,32 &euro;</span>
             <span class="order-card-paid">Bezahlt</span>
           </span>
-        </div>
-        <div class="order-card-meta">
-          <span class="order-card-meta-left">#2015386661</span>
-          <span class="order-card-date">28.06.2026</span>
         </div>
         <div class="order-card-divider"></div>
         <div class="order-card-actions">
@@ -702,15 +710,17 @@
       <div class="order-card">
         <a class="order-card-header-link" href="order-detail.html">
           <div class="order-card-top">
-            <span class="order-card-title">Apple AirPods 4 und 5 weitere Artikel</span>
+            <div class="order-card-info">
+              <span class="order-card-title">Apple AirPods 4 und 5 weitere Artikel</span>
+              <div class="order-card-meta">
+                <span class="order-card-meta-left">#2015381330</span>
+                <span class="order-card-date">19.06.2026</span>
+              </div>
+            </div>
             <span class="order-card-meta-right">
               <span class="order-card-sum">4.678,02 &euro;</span>
               <span class="order-card-paid">Bezahlt</span>
             </span>
-          </div>
-          <div class="order-card-meta">
-            <span class="order-card-meta-left">#2015381330</span>
-            <span class="order-card-date">19.06.2026</span>
           </div>
         </a>
         <div class="order-card-divider"></div>
